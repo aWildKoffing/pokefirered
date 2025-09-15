@@ -751,7 +751,27 @@
 //       only space for 25 additional trainers before trainer flag space overflows.
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
-#define NUM_TRAINERS                             743
+// additional rival trainer definitions for johto and hoenn starters
+#define TRAINER_RIVAL_OAKS_LAB_TOTODILE          743
+#define TRAINER_RIVAL_OAKS_LAB_CHIKORITA         744
+#define TRAINER_RIVAL_OAKS_LAB_CYNDAQUIL         745
+#define TRAINER_RIVAL_OAKS_LAB_MUDKIP            746
+#define TRAINER_RIVAL_OAKS_LAB_TREECKO           747
+#define TRAINER_RIVAL_OAKS_LAB_TORCHIC           748
+#define TRAINER_RIVAL_ROUTE22_EARLY_TOTODILE     749
+#define TRAINER_RIVAL_ROUTE22_EARLY_CHIKORITA    750
+#define TRAINER_RIVAL_ROUTE22_EARLY_CYNDAQUIL    751
+#define TRAINER_RIVAL_ROUTE22_EARLY_MUDKIP       752
+#define TRAINER_RIVAL_ROUTE22_EARLY_TREECKO      753
+#define TRAINER_RIVAL_ROUTE22_EARLY_TORCHIC      754
+#define TRAINER_RIVAL_CERULEAN_TOTODILE          755
+#define TRAINER_RIVAL_CERULEAN_CHIKORITA         756
+#define TRAINER_RIVAL_CERULEAN_CYNDAQUIL         757
+#define TRAINER_RIVAL_CERULEAN_MUDKIP            758
+#define TRAINER_RIVAL_CERULEAN_TREECKO           759
+#define TRAINER_RIVAL_CERULEAN_TORCHIC           760
+
+#define NUM_TRAINERS                             761
 #define MAX_TRAINERS_COUNT                       768
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

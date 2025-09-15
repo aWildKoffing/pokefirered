@@ -106,17 +106,53 @@ PalletTown_ProfessorOaksLab_Text_OakChoosingCharmander::
     .string "So, {PLAYER}, you're claiming the\n"
     .string "FIRE POKéMON CHARMANDER?$"
 
+PalletTown_ProfessorOaksLab_Text_OakChoosingCyndaquil::
+    .string "Ah! CYNDAQUIL is your choice.\n"
+    .string "You should raise it patiently.\p"
+    .string "So, {PLAYER}, you're claiming the\n"
+    .string "FIRE POKéMON CYNDAQUIL?$"
+
+PalletTown_ProfessorOaksLab_Text_OakChoosingTorchic::
+    .string "Ah! TORCHIC is your choice.\n"
+    .string "You should raise it patiently.\p"
+    .string "So, {PLAYER}, you're claiming the\n"
+    .string "FIRE POKéMON TORCHIC?$"
+
 PalletTown_ProfessorOaksLab_Text_OakChoosingSquirtle::
     .string "Hm! SQUIRTLE is your choice.\n"
     .string "It's one worth raising.\p"
     .string "So, {PLAYER}, you've decided on the\n"
     .string "WATER POKéMON SQUIRTLE?$"
 
+PalletTown_ProfessorOaksLab_Text_OakChoosingTotodile::
+    .string "Hm! TOTODILE is your choice.\n"
+    .string "It's one worth raising.\p"
+    .string "So, {PLAYER}, you've decided on the\n"
+    .string "WATER POKéMON TOTODILE?$"
+
+PalletTown_ProfessorOaksLab_Text_OakChoosingMudkip::
+    .string "Hm! MUDKIP is your choice.\n"
+    .string "It's one worth raising.\p"
+    .string "So, {PLAYER}, you've decided on the\n"
+    .string "WATER POKéMON MUDKIP?$"
+
 PalletTown_ProfessorOaksLab_Text_OakChoosingBulbasaur::
     .string "I see! BULBASAUR is your choice.\n"
     .string "It's very easy to raise.\p"
     .string "So, {PLAYER}, you want to go with\n"
     .string "the GRASS POKéMON BULBASAUR?$"
+
+PalletTown_ProfessorOaksLab_Text_OakChoosingChikorita::
+    .string "I see! CHIKORITA is your choice.\n"
+    .string "It's very easy to raise.\p"
+    .string "So, {PLAYER}, you want to go with\n"
+    .string "the GRASS POKéMON CHIKORITA?$"
+
+PalletTown_ProfessorOaksLab_Text_OakChoosingTreecko::
+    .string "I see! TREECKO is your choice.\n"
+    .string "It's very easy to raise.\p"
+    .string "So, {PLAYER}, you want to go with\n"
+    .string "the GRASS POKéMON TREECKO?$"
 
 PalletTown_ProfessorOaksLab_Text_OakThisMonIsEnergetic::
     .string "This POKéMON is really quite\n"
@@ -355,3 +391,6 @@ PalletTown_ProfessorOaksLab_Text_RivalIllCompleteThePokedex::
     .string "ONE ISLAND first…\p"
     .string "Anyways, I'm outta here!$"
 
+PalletTown_ProfessorOaksLab_Text_AskStarterRegion::
+    .string "Before we begin, which region's\n"
+    .string "starters would you like to use?$"

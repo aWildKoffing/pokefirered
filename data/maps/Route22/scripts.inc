@@ -30,9 +30,9 @@ Route22_EventScript_EarlyRival::
 	call_if_eq VAR_TEMP_1, 2, Route22_EventScript_EarlyRivalApproachBottom
 	delay 6
 	msgbox Route22_Text_EarlyRivalIntro
-	call_if_eq VAR_STARTER_MON, 2, Route22_EventScript_EarlyRivalSquirtle
-	call_if_eq VAR_STARTER_MON, 1, Route22_EventScript_EarlyRivalBulbasaur
-	call_if_eq VAR_STARTER_MON, 0, Route22_EventScript_EarlyRivalCharmander
+	call_if_eq VAR_STARTER_MON, 2, Route22_EventScript_EarlyRivalChoseWater
+	call_if_eq VAR_STARTER_MON, 1, Route22_EventScript_EarlyRivalChoseGrass
+	call_if_eq VAR_STARTER_MON, 0, Route22_EventScript_EarlyRivalChoseFire
 	msgbox Route22_Text_EarlyRivalPostBattle
 	closemessage
 	delay 10
@@ -57,16 +57,58 @@ Route22_EventScript_EarlyRivalApproachBottom::
 	waitmovement 0
 	return
 
+Route22_EventScript_EarlyRivalChoseWater::
+	call_if_eq VAR_STARTER_SET, 0, Route22_EventScript_EarlyRivalSquirtle
+	call_if_eq VAR_STARTER_SET, 1, Route22_EventScript_EarlyRivalTotodile
+	call_if_eq VAR_STARTER_SET, 2, Route22_EventScript_EarlyRivalMudkip
+	return
+
+Route22_EventScript_EarlyRivalChoseGrass::
+	call_if_eq VAR_STARTER_SET, 0, Route22_EventScript_EarlyRivalBulbasaur
+	call_if_eq VAR_STARTER_SET, 1, Route22_EventScript_EarlyRivalChikorita
+	call_if_eq VAR_STARTER_SET, 2, Route22_EventScript_EarlyRivalTreecko
+	return
+
+Route22_EventScript_EarlyRivalChoseFire::
+	call_if_eq VAR_STARTER_SET, 0, Route22_EventScript_EarlyRivalCharmander
+	call_if_eq VAR_STARTER_SET, 1, Route22_EventScript_EarlyRivalCyndaquil
+	call_if_eq VAR_STARTER_SET, 2, Route22_EventScript_EarlyRivalTorchic
+	return
+
 Route22_EventScript_EarlyRivalSquirtle::
 	trainerbattle_earlyrival TRAINER_RIVAL_ROUTE22_EARLY_SQUIRTLE, 0, Route22_Text_EarlyRivalDefeat, Text_RivalVictory
+	return
+
+Route22_EventScript_EarlyRivalTotodile::
+	trainerbattle_earlyrival TRAINER_RIVAL_ROUTE22_EARLY_TOTODILE, 0, Route22_Text_EarlyRivalDefeat, Text_RivalVictory
+	return
+
+Route22_EventScript_EarlyRivalMudkip::
+	trainerbattle_earlyrival TRAINER_RIVAL_ROUTE22_EARLY_MUDKIP, 0, Route22_Text_EarlyRivalDefeat, Text_RivalVictory
 	return
 
 Route22_EventScript_EarlyRivalBulbasaur::
 	trainerbattle_earlyrival TRAINER_RIVAL_ROUTE22_EARLY_BULBASAUR, 0, Route22_Text_EarlyRivalDefeat, Text_RivalVictory
 	return
 
+Route22_EventScript_EarlyRivalChikorita::
+	trainerbattle_earlyrival TRAINER_RIVAL_ROUTE22_EARLY_CHIKORITA, 0, Route22_Text_EarlyRivalDefeat, Text_RivalVictory
+	return
+
+Route22_EventScript_EarlyRivalTreecko::
+	trainerbattle_earlyrival TRAINER_RIVAL_ROUTE22_EARLY_TREECKO, 0, Route22_Text_EarlyRivalDefeat, Text_RivalVictory
+	return
+
 Route22_EventScript_EarlyRivalCharmander::
 	trainerbattle_earlyrival TRAINER_RIVAL_ROUTE22_EARLY_CHARMANDER, 0, Route22_Text_EarlyRivalDefeat, Text_RivalVictory
+	return
+
+Route22_EventScript_EarlyRivalCyndaquil::
+	trainerbattle_earlyrival TRAINER_RIVAL_ROUTE22_EARLY_CYNDAQUIL, 0, Route22_Text_EarlyRivalDefeat, Text_RivalVictory
+	return
+
+Route22_EventScript_EarlyRivalTorchic::
+	trainerbattle_earlyrival TRAINER_RIVAL_ROUTE22_EARLY_TORCHIC, 0, Route22_Text_EarlyRivalDefeat, Text_RivalVictory
 	return
 
 Route22_EventScript_EarlyRivalExit::

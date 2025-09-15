@@ -190,6 +190,12 @@ static const struct MenuAction sMultichoiceList_GameCornerCoinPurchaseCounter[] 
     { gOtherText_Exit }
 };
 
+static const struct MenuAction sMultichoiceList_StarterRegion[] = {
+    { gText_Kanto },
+    { gText_Johto },
+    { gText_Hoenn }
+};
+
 static const struct MenuAction sMultichoiceList_Excellent_NotSoBad[] = {
     { gText_Excellent },
     { gText_NotSoBad }
@@ -562,6 +568,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] = {
     [MULTICHOICE_62]                                         = MULTICHOICE(sMultichoiceList_62),
     [MULTICHOICE_JOIN_OR_LEAD]                               = MULTICHOICE(sMultichoiceList_JoinOrLead),
     [MULTICHOICE_TRAINER_TOWER_MODE]                         = MULTICHOICE(sMultichoiceList_TrainerTowerMode),
+    [MULTICHOICE_STARTER_REGION]                             = MULTICHOICE(sMultichoiceList_StarterRegion),
 };
 
 // From Cool to Berries goes unused

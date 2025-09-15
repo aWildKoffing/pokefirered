@@ -92,14 +92,17 @@
 #define VAR_0x402D                         0x402D
 #define VAR_0x402E                         0x402E
 
-#define VAR_0x402F                         0x402F
+// track which region starter was chose
+#define VAR_STARTER_SET                    0x402F // 0: Kanto, 1: Johto, 2: Hoenn
 
 #define VAR_ICE_STEP_COUNT                 0x4030
-#define VAR_STARTER_MON                    0x4031 // 0: Bulbasaur, 1: Squirtle, 2: Charmander
+#define VAR_STARTER_MON                    0x4031 // 0: Bulbasaur, 1: Squirtle,  2: Charmander for VAR_STARTER_SET 0
+                                                  // 0: Chikorita, 1: Totodile,  2: Cyndaquil  for VAR_STARTER_SET 1
+                                                  // 0: Treecko,   1: Mudkip,    2: Torchic    for VAR_STARTER_SET 2
 #define VAR_RESET_RTC_ENABLE               0x4032
 #define VAR_ENIGMA_BERRY_AVAILABLE         0x4033
 
-#define VAR_0x4034                         0x4034
+#define VAR_RIVAL_STARTER                  0x4034 // holds specise ID of rival starter
 #define VAR_RESORT_GOREGEOUS_STEP_COUNTER  0x4035
 #define VAR_RESORT_GORGEOUS_REQUESTED_MON  0x4036
 #define VAR_PC_BOX_TO_SEND_MON             0x4037

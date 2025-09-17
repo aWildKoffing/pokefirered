@@ -450,6 +450,7 @@ const u8 gTypeNames[NUMBER_OF_MON_TYPES][TYPE_NAME_LENGTH + 1] =
 // This is a factor in how much money you get for beating a trainer.
 const struct TrainerMoney gTrainerMoneyTable[] =
 {
+    {TRAINER_CLASS_CHALLENGER, 50},
     {TRAINER_CLASS_LEADER, 25},
     {TRAINER_CLASS_ELITE_FOUR, 25},
     {TRAINER_CLASS_PKMN_PROF, 25},

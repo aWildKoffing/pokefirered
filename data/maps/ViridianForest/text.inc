@@ -65,6 +65,20 @@ ViridianForest_Text_CharliePostBattle::
     .string "BUG POKéMON evolve quickly.\n"
     .string "They're a lot of fun!$"
 
+ViridianForest_Text_BrittanyIntro::
+    .string "Hi! I just started my POKéMON\n"
+    .string "journey. I'm from VIRIDIAN CITY.\n"
+    .string "This place is such a maze!\n"
+    .string "Oh right, we're supposed to battle!$"
+
+ViridianForest_Text_BrittanyDefeat::
+    .string "Oh, no! EEVEE are you OK?\n"
+    .string "You're too strong!$"
+
+ViridianForest_Text_BrittanyPostBattle::
+    .string "The forest is kind of scary.\n"
+    .string "Good thing I have EEVEE with me!$"
+
 ViridianForest_Text_RanOutOfPokeBalls::
     .string "I was throwing POKé BALLS to\n"
     .string "catch POKéMON, and I ran out.\p"

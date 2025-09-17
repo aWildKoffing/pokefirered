@@ -219,8 +219,9 @@ PalletTown_ProfessorOaksLab_Text_OakCatchMonsForDataTakeThese::
     .string "So, here are some tools for\n"
     .string "catching wild POKéMON.$"
 
-PalletTown_ProfessorOaksLab_Text_ReceivedFivePokeBalls::
-    .string "{PLAYER} received five POKé BALLS.$"
+PalletTown_ProfessorOaksLab_Text_ReceivedFifteenPokeBalls::
+    .string "{PLAYER} received 15 POKé BALLS.\n"
+    .string "Wow! PROF. OAK sure is generous!$"
 
 PalletTown_ProfessorOaksLab_Text_OakExplainCatching::
     .string "When a wild POKéMON appears,\n"

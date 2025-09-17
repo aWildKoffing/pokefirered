@@ -355,3 +355,21 @@ PalletTown_ProfessorOaksLab_Text_RivalIllCompleteThePokedex::
     .string "ONE ISLAND first…\p"
     .string "Anyways, I'm outta here!$"
 
+PalletTown_ProfessorOaksLab_Text_GBAKidChangeSetting::
+    .string "Sup {PLAYER}! I can help you\n"
+    .string "modify some in-game settings.$"
+
+PalletTown_ProfessorOaksLab_Text_GBAKidChangeExpSetting::
+    .string "All I know how to change right now\n"
+    .string "is the experience-on-capture setting.\p"
+    .string "So, do you want to earn experience\n"
+    .string "after catching a POKéMON?$"
+
+PalletTown_ProfessorOaksLab_Text_GBAKidConfirmSettingOff::
+    .string "I've turned experience-on-capture off!$"
+
+PalletTown_ProfessorOaksLab_Text_GBAKidConfirmSettingOn::
+    .string "I've turned experience-on-capture on!$"
+
+PalletTown_ProfessorOaksLab_Text_GBAKidEnd::
+    .string "Alright- go get 'em!$"

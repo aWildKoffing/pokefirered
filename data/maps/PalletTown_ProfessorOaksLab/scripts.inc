@@ -1299,3 +1299,30 @@ PalletTown_ProfessorOaksLab_EventScript_RightSignAlt::
 	msgbox PalletTown_ProfessorOaksLab_Text_AllMonTypesHaveStrongAndWeakPoints
 	releaseall
 	end
+
+PalletTown_ProfessorOaksLab_EventScript_GBAKid::
+	lock
+	faceplayer
+	msgbox PalletTown_ProfessorOaksLab_Text_GBAKidChangeSetting, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, PalletTown_ProfessorOaksLab_EventScript_GBAKid_ChangeSetting
+	msgbox PalletTown_ProfessorOaksLab_Text_GBAKidEnd
+	release
+	end
+
+PalletTown_ProfessorOaksLab_EventScript_GBAKid_ChangeSetting::
+	msgbox PalletTown_ProfessorOaksLab_Text_GBAKidChangeExpSetting, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq .setExpOnCatchOn
+	goto_if_ne .setExpOnCatchOff
+.setExpOnCatchOff:
+	clearflag FLAG_SYS_EXP_ON_CATCH
+	msgbox PalletTown_ProfessorOaksLab_Text_GBAKidConfirmSettingOff
+	goto .settingsDone
+.setExpOnCatchOn:
+	setflag FLAG_SYS_EXP_ON_CATCH
+	msgbox PalletTown_ProfessorOaksLab_Text_GBAKidConfirmSettingOn
+	goto .settingsDone
+.settingsDone:
+	msgbox PalletTown_ProfessorOaksLab_Text_GBAKidEnd
+	release
+	end

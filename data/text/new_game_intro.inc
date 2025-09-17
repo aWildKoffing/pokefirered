@@ -241,3 +241,8 @@ gOakSpeech_Text_LetsGo::
     .string "about to unfold!\p"
     .string "A world of dreams and adventures\n"
     .string "with POKéMON awaits! Let's go!$"
+
+gOakSpeech_Text_WantExpOnCatch::
+    .string "Oh! I almost forgot to ask!\p"
+    .string "Do you want to earn experience\n"
+    .string "when catching wild POKéMON?$"

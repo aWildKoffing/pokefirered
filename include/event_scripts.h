@@ -752,6 +752,7 @@ extern const u8 gOakSpeech_Text_YourRivalsNameWhatWasIt[];
 extern const u8 gOakSpeech_Text_ConfirmRivalName[];
 extern const u8 gOakSpeech_Text_RememberRivalsName[];
 extern const u8 gOakSpeech_Text_LetsGo[];
+extern const u8 gOakSpeech_Text_WantExpOnCatch[];
 
 // Help System
 extern const u8 Help_Text_WhatShouldIDo[];

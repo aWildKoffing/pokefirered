@@ -7,6 +7,7 @@
 #include "menu.h"
 #include "help_system.h"
 #include "new_menu_helpers.h"
+#include "event_data.h"
 #include "event_scripts.h"
 #include "scanline_effect.h"
 #include "pokeball.h"
@@ -94,6 +95,8 @@ static void Task_OakSpeech_FadePlayerPicWhite(u8);
 static void Task_OakSpeech_FadePlayerPicToBlack(u8);
 static void Task_OakSpeech_WaitForFade(u8);
 static void Task_OakSpeech_FreeResources(u8);
+static void Task_OakSpeech_WantExpOnCatch(u8);
+static void Task_OakSpeech_HandleConfirmExpOnCatchInput(u8);
 
 static void CB2_ReturnFromNamingScreen(void);
 static void CreateNidoranFSprite(u8);
@@ -1565,6 +1568,8 @@ static void Task_OakSpeech_AskRivalsName(u8 taskId)
     }
 }
 
+#define tExpNotConfirmed data[15]
+
 static void Task_OakSpeech_ReshowPlayersPic(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
@@ -1586,8 +1591,61 @@ static void Task_OakSpeech_ReshowPlayersPic(u8 taskId)
             gSpriteCoordOffsetX = 0;
             ChangeBgX(2, 0, BG_COORD_SET);
             CreateFadeOutTask(taskId, 2);
-            gTasks[taskId].func = Task_OakSpeech_LetsGo;
+            tExpNotConfirmed = TRUE;
+            gTasks[taskId].func = Task_OakSpeech_WantExpOnCatch;
         }
+    }
+}
+
+static void Task_OakSpeech_WantExpOnCatch(u8 taskId)
+{
+    s16 *data = gTasks[taskId].data;
+    //if (!gPaletteFade.active)
+    if(tTrainerPicFadeState != 0)
+    {
+        if (tExpNotConfirmed == TRUE)
+        {
+            StringExpandPlaceholders(gStringVar4, gOakSpeech_Text_WantExpOnCatch);
+            OakSpeechPrintMessage(gStringVar4, sOakSpeechResources->textSpeed);
+            tExpNotConfirmed = FALSE;
+            tTimer = 50;
+        }
+        else if (!IsTextPrinterActive(WIN_INTRO_TEXTBOX))
+        {
+            if (tTimer != 0)
+            {
+                tTimer--;
+            }
+            else
+            {
+                CreateYesNoMenu(&sIntro_WindowTemplates[WIN_INTRO_YESNO], FONT_NORMAL, 0, 2, GetStdWindowBaseTileNum(), 14, 0);
+                gTasks[taskId].func = Task_OakSpeech_HandleConfirmExpOnCatchInput;
+            }
+        }
+    }
+}
+
+static void Task_OakSpeech_HandleConfirmExpOnCatchInput(u8 taskId)
+{
+    s8 input = Menu_ProcessInputNoWrapClearOnChoose();
+    switch (input)
+    {
+    case 0: // YES
+        PlaySE(SE_SELECT);
+        //gTasks[taskId].tTimer = 40;
+        FlagSet(FLAG_SYS_EXP_ON_CATCH);
+        ClearDialogWindowAndFrame(WIN_INTRO_TEXTBOX, TRUE);
+        CreateFadeOutTask(taskId, 2);
+        gTasks[taskId].func = Task_OakSpeech_LetsGo;
+        break;
+    case 1: // NO
+    case MENU_B_PRESSED:
+        PlaySE(SE_SELECT);
+        FlagClear(FLAG_SYS_EXP_ON_CATCH);
+        ClearDialogWindowAndFrame(WIN_INTRO_TEXTBOX, TRUE);
+        CreateFadeOutTask(taskId, 2);
+        gTasks[taskId].func = Task_OakSpeech_LetsGo;
+        break;
     }
 }
 
@@ -2178,6 +2236,7 @@ static void GetDefaultName(u8 hasPlayerBeenNamed, u8 rivalNameChoice)
 #undef tSecondaryTimer
 #undef tBlendCoefficient
 #undef tNameNotConfirmed
+#undef tExpNotConfirmed
 #undef sBodySpriteId
 #undef tParentTaskId
 #undef tBlendTarget1

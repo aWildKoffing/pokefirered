@@ -262,6 +262,10 @@ static void CreateBattlerSprite(u8 battler)
         {
             return;
         }
+        else if (gBattleScripting.monCaught) // Don't create opponent sprite if it has been caught.
+        {
+            return;
+        }
         else
         {
             SetMultiuseSpriteTemplateToPokemon(GetMonData(&gPlayerParty[gBattlerPartyIndexes[battler]], MON_DATA_SPECIES), GetBattlerPosition(battler));

@@ -2272,6 +2272,8 @@ static void BattleStartClearSetData(void)
     gIntroSlideFlags = 0;
     gBattleScripting.animTurn = 0;
     gBattleScripting.animTargetsHit = 0;
+    gBattleScripting.expOnCatch = TRUE;
+    gBattleScripting.monCaught = FALSE;
     gLeveledUpInBattle = 0;
     gAbsentBattlerFlags = 0;
     gBattleStruct->runTries = 0;

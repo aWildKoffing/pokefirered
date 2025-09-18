@@ -1,28 +1,16 @@
 MtMoon_B2F_Text_MiguelIntro::
-    .string "Hey, stop!\p"
-    .string "I found these fossils!\n"
-    .string "They're both mine!$"
+    .string "Godammit!\p"
+    .string "You meddling brat!\p"
+    .string "These fossils are the propety\n"
+    .string "of TEAM ROCKET!\p"
+    .string "I'll teach you a lesson!$"
 
 MtMoon_B2F_Text_MiguelDefeat::
-    .string "Okay!\n"
-    .string "I'll share!$"
-
-MtMoon_B2F_Text_WellEachTakeAFossil::
-    .string "We'll each take a fossil!\n"
-    .string "No being greedy!$"
-
-MtMoon_B2F_Text_ThenThisFossilIsMine::
-    .string "All right.\n"
-    .string "Then this fossil is mine!$"
-
-MtMoon_B2F_Text_LabOnCinnabarRegeneratesFossils::
-    .string "Far away, on CINNABAR ISLAND,\n"
-    .string "there's a POKéMON LAB.\p"
-    .string "They do research on regenerating\n"
-    .string "fossils.$"
+    .string "Damn! The boss will not\n"
+    .string "be happy to hear this...$"
 
 MtMoon_B2F_Text_Grunt1Intro::
-    .string "We, TEAM ROCKET, shall find the\n"
+    .string "We, TEAM ROCKET, shall have the\n"
     .string "fossils!\p"
     .string "Reviving POKéMON from them will\n"
     .string "earn us huge riches!$"
@@ -55,8 +43,7 @@ MtMoon_B2F_Text_Grunt3Defeat::
     .string "So, you are good…$"
 
 MtMoon_B2F_Text_Grunt3PostBattle::
-    .string "If you find a fossil, give it to me\n"
-    .string "and scram!$"
+    .string "Piss off, kid!$"
 
 MtMoon_B2F_Text_Grunt4Intro::
     .string "Little kids shouldn't be messing\n"
@@ -82,3 +69,16 @@ MtMoon_B2F_Text_ObtainedHelixFossil::
 MtMoon_B2F_Text_ObtainedDomeFossil::
     .string "Obtained the DOME FOSSIL!$"
 
+MtMoon_B2F_Text_BenIntro::
+    .string "Watch out for GEODUDE!\p"
+    .string "They like to blow up!\p"
+
+MtMoon_B2F_Text_BenDefeat::
+    .string "Haha, what a battle!\n"
+    .string "Got me cranking my shiii!$"
+
+MtMoon_B2F_Text_BenGiveSunStone::
+    .string "That was fun. I demand\n"
+    .string "a rematch next time we meet!\p"
+    .string "Here, I found this but\n"
+    .string "doubt that I will use it.$"

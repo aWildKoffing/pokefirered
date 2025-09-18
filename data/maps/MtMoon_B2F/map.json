@@ -50,15 +50,15 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SCIENTIST",
       "x": 13,
-      "y": 11,
+      "y": 16,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 1,
       "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "1",
       "script": "MtMoon_B2F_EventScript_Miguel",
-      "flag": "0"
+      "flag": "FLAG_HIDE_MISC_KANTO_ROCKETS"
     },
     {
       "type": "object",
@@ -80,7 +80,7 @@
       "x": 12,
       "y": 20,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
@@ -91,14 +91,14 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
-      "x": 35,
-      "y": 12,
+      "x": 14,
+      "y": 19,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "4",
+      "trainer_sight_or_berry_tree_id": "2",
       "script": "MtMoon_B2F_EventScript_Grunt3",
       "flag": "FLAG_HIDE_MISC_KANTO_ROCKETS"
     },
@@ -171,6 +171,21 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "MtMoon_B2F_EventScript_ItemAntidote",
       "flag": "FLAG_HIDE_MT_MOON_B2F_ANTIDOTE"
+    },
+    {
+      "local_id": "LOCALID_MT_MOON_BEN",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
+      "x": 40,
+      "y": 8,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 3,
+      "movement_range_y": 3,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "MtMoon_B2F_EventScript_Ben",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -203,17 +218,7 @@
       "dest_warp_id": "6"
     }
   ],
-  "coord_events": [
-    {
-      "type": "trigger",
-      "x": 14,
-      "y": 11,
-      "elevation": 3,
-      "var": "VAR_MAP_SCENE_MT_MOON_B2F",
-      "var_value": "0",
-      "script": "MtMoon_B2F_EventScript_MiguelTrigger"
-    }
-  ],
+  "coord_events": [],
   "bg_events": [
     {
       "type": "hidden_item",

@@ -1242,18 +1242,18 @@ static const struct TrainerMonNoItemDefaultMoves sParty_SuperNerdJovan[] = {
 
 static const struct TrainerMonNoItemDefaultMoves sParty_SuperNerdMiguel[] = {
     {
-        .iv = 0,
-        .lvl = 12,
-        .species = SPECIES_GRIMER,
+        .iv = 40,
+        .lvl = 14,
+        .species = SPECIES_GASTLY,
     },
     {
-        .iv = 0,
-        .lvl = 12,
-        .species = SPECIES_VOLTORB,
+        .iv = 40,
+        .lvl = 14,
+        .species = SPECIES_SNUBBULL,
     },
     {
-        .iv = 0,
-        .lvl = 12,
+        .iv = 40,
+        .lvl = 16,
         .species = SPECIES_KOFFING,
     },
 };
@@ -4467,14 +4467,14 @@ static const struct TrainerMonNoItemCustomMoves sParty_LeaderGiovanni[] = {
 
 static const struct TrainerMonNoItemDefaultMoves sParty_TeamRocketGrunt[] = {
     {
-        .iv = 0,
-        .lvl = 13,
-        .species = SPECIES_RATTATA,
-    },
-    {
-        .iv = 0,
+        .iv = 40,
         .lvl = 13,
         .species = SPECIES_ZUBAT,
+    },
+    {
+        .iv = 40,
+        .lvl = 12,
+        .species = SPECIES_GRIMER,
     },
 };
 
@@ -4498,13 +4498,13 @@ static const struct TrainerMonNoItemDefaultMoves sParty_TeamRocketGrunt2[] = {
 
 static const struct TrainerMonNoItemDefaultMoves sParty_TeamRocketGrunt3[] = {
     {
-        .iv = 0,
-        .lvl = 11,
-        .species = SPECIES_ZUBAT,
+        .iv = 40,
+        .lvl = 13,
+        .species = SPECIES_MANKEY,
     },
     {
-        .iv = 0,
-        .lvl = 11,
+        .iv = 40,
+        .lvl = 13,
         .species = SPECIES_EKANS,
     },
 };
@@ -11211,5 +11211,20 @@ static const struct TrainerMonNoItemDefaultMoves sParty_ChallengerNickCerulean[]
         .iv = 0,
         .lvl = 20,
         .species = SPECIES_BELDUM,
+    },
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_ChallengerBenMtMoon[] = {
+    {
+        .iv = 40,
+        .lvl = 16,
+        .species = SPECIES_AIPOM,
+        .moves = {MOVE_SCRATCH, MOVE_THIEF, MOVE_BATON_PASS, MOVE_AGILITY},
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_PORYGON,
+        .moves = {MOVE_TACKLE, MOVE_CONVERSION, MOVE_AGILITY, MOVE_PSYBEAM},
     },
 };

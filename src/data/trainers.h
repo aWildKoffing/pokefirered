@@ -1693,9 +1693,9 @@ const struct Trainer gTrainers[] = {
         .party = NO_ITEM_DEFAULT_MOVES(sParty_SuperNerdJovan),
     },
     [TRAINER_SUPER_NERD_MIGUEL] = {
-        .trainerClass = TRAINER_CLASS_SUPER_NERD,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
-        .trainerPic = TRAINER_PIC_SUPER_NERD,
+        .trainerClass = TRAINER_CLASS_TEAM_ROCKET,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_AQUA,
+        .trainerPic = TRAINER_PIC_SCIENTIST,
         .trainerName = _("MIGUEL"),
         .items = {},
         .doubleBattle = FALSE,
@@ -7622,5 +7622,15 @@ const struct Trainer gTrainers[] = {
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
         .party = NO_ITEM_DEFAULT_MOVES(sParty_ChallengerNickCerulean),
+    },
+    [TRAINER_MT_MOON_BEN] = {
+        .trainerClass = TRAINER_CLASS_CHALLENGER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
+        .trainerPic = TRAINER_PIC_RS_YOUNGSTER,
+        .trainerName = _("BEN"),
+        .items = {ITEM_X_DEFEND},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_SETUP_FIRST_TURN | AI_SCRIPT_PREFER_BATON_PASS,
+        .party = NO_ITEM_CUSTOM_MOVES(sParty_ChallengerBenMtMoon),
     },
 };

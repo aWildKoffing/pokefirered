@@ -191,7 +191,7 @@
 #define VAR_MAP_SCENE_ROCKET_WAREHOUSE                                         0x4088
 #define VAR_MAP_SCENE_SIX_ISLAND_POKEMON_CENTER_1F                             0x4089
 #define VAR_MAP_SCENE_CINNABAR_ISLAND_2                                        0x408A
-#define VAR_MAP_SCENE_MT_MOON_B2F                                              0x408B
+#define VAR_0x408B                                                             0x408B
 
 
 #define VAR_CERULEAN_NICK_INTRO_DONE                 0x408C

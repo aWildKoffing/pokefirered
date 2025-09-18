@@ -773,7 +773,8 @@
 
 #define TRAINER_BRITTANY_EARLY                   761
 #define TRAINER_NICK_CERULEAN                    762
-#define NUM_TRAINERS                             763
+#define TRAINER_MT_MOON_BEN                      763
+#define NUM_TRAINERS                             764
 #define MAX_TRAINERS_COUNT                       768
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

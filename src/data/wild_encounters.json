@@ -1234,7 +1234,7 @@
               {
                 "min_level": 7,
                 "max_level": 7,
-                "species": "SPECIES_TEDDIURSA"
+                "species": "SPECIES_MACHOP"
               },
               {
                 "min_level": 7,
@@ -1372,7 +1372,7 @@
               {
                 "min_level": 8,
                 "max_level": 8,
-                "species": "SPECIES_TEDDIURSA"
+                "species": "SPECIES_KOFFING"
               },
               {
                 "min_level": 7,
@@ -1515,7 +1515,7 @@
               {
                 "min_level": 8,
                 "max_level": 8,
-                "species": "SPECIES_CLEFFA"
+                "species": "SPECIES_CLEFABLE"
               },
               {
                 "min_level": 7,

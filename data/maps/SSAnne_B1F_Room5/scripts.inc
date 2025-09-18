@@ -12,5 +12,10 @@ SSAnne_B1F_Room5_EventScript_Machoke::
 	playmoncry SPECIES_MACHOKE, CRY_MODE_NORMAL
 	msgbox SSAnne_B1F_Room5_Text_Machoke
 	waitmoncry
+	setvar VAR_0x8004, SPECIES_MACHOKE
+	special SetSeenMon
+	showmonpic SPECIES_MACHOKE, 10, 3
+	waitbuttonpress
+	hidemonpic
 	release
 	end

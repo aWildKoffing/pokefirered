@@ -24,7 +24,7 @@ SSAnne_Deck_Text_EdmondPostBattle::
 
 SSAnne_Deck_Text_TrevorIntro::
     .string "Ahoy, there!\n"
-    .string "Are you seasick?$"
+    .string "Us sailors have tough POKéMON!$"
 
 SSAnne_Deck_Text_TrevorDefeat::
     .string "I was just careless!$"

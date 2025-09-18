@@ -34,9 +34,9 @@ SSAnne_2F_Corridor_EventScript_RivalTrigger::
 	call_if_eq VAR_TEMP_1, 2, SSAnne_2F_Corridor_EventScript_RivalApproachRight
 	msgbox SSAnne_2F_Corridor_Text_RivalIntro
 	setvar VAR_LAST_TALKED, LOCALID_SS_ANNE_RIVAL
-	call_if_eq VAR_STARTER_MON, 2, SSAnne_2F_Corridor_EventScript_RivalSquirtle
-	call_if_eq VAR_STARTER_MON, 1, SSAnne_2F_Corridor_EventScript_RivalBulbasaur
-	call_if_eq VAR_STARTER_MON, 0, SSAnne_2F_Corridor_EventScript_RivalCharmander
+	call_if_eq VAR_STARTER_MON, 2, SSAnne_2F_Corridor_EventScript_EarlyRivalChoseWater
+	call_if_eq VAR_STARTER_MON, 1, SSAnne_2F_Corridor_EventScript_EarlyRivalChoseGrass
+	call_if_eq VAR_STARTER_MON, 0, SSAnne_2F_Corridor_EventScript_EarlyRivalChoseFire
 	msgbox SSAnne_2F_Corridor_Text_RivalPostBattle
 	closemessage
 	delay 10
@@ -49,6 +49,24 @@ SSAnne_2F_Corridor_EventScript_RivalTrigger::
 	setvar VAR_MAP_SCENE_S_S_ANNE_2F_CORRIDOR, 1
 	releaseall
 	end
+
+SSAnne_2F_Corridor_EventScript_EarlyRivalChoseWater::
+	call_if_eq VAR_STARTER_SET, 0, SSAnne_2F_Corridor_EventScript_RivalSquirtle
+	call_if_eq VAR_STARTER_SET, 1, SSAnne_2F_Corridor_EventScript_RivalTotodile
+	call_if_eq VAR_STARTER_SET, 2, SSAnne_2F_Corridor_EventScript_RivalMudkip
+	return
+
+SSAnne_2F_Corridor_EventScript_EarlyRivalChoseGrass::
+	call_if_eq VAR_STARTER_SET, 0, SSAnne_2F_Corridor_EventScript_RivalBulbasaur
+	call_if_eq VAR_STARTER_SET, 1, SSAnne_2F_Corridor_EventScript_RivalChikorita
+	call_if_eq VAR_STARTER_SET, 2, SSAnne_2F_Corridor_EventScript_RivalTreecko
+	return
+
+SSAnne_2F_Corridor_EventScript_EarlyRivalChoseFire::
+	call_if_eq VAR_STARTER_SET, 0, SSAnne_2F_Corridor_EventScript_RivalCharmander
+	call_if_eq VAR_STARTER_SET, 1, SSAnne_2F_Corridor_EventScript_RivalCyndaquil
+	call_if_eq VAR_STARTER_SET, 2, SSAnne_2F_Corridor_EventScript_RivalTorchic
+	return
 
 SSAnne_2F_Corridor_EventScript_RivalApproachLeft::
 	applymovement LOCALID_SS_ANNE_RIVAL, SSAnne_2F_Corridor_Movement_RivalApproachLeft
@@ -71,12 +89,36 @@ SSAnne_2F_Corridor_EventScript_RivalSquirtle::
 	trainerbattle_no_intro TRAINER_RIVAL_SS_ANNE_SQUIRTLE, SSAnne_2F_Corridor_Text_RivalDefeat
 	return
 
+SSAnne_2F_Corridor_EventScript_RivalTotodile::
+	trainerbattle_no_intro TRAINER_RIVAL_SS_ANNE_TOTODILE, SSAnne_2F_Corridor_Text_RivalDefeat
+	return
+
+SSAnne_2F_Corridor_EventScript_RivalMudkip::
+	trainerbattle_no_intro TRAINER_RIVAL_SS_ANNE_MUDKIP, SSAnne_2F_Corridor_Text_RivalDefeat
+	return
+
 SSAnne_2F_Corridor_EventScript_RivalBulbasaur::
 	trainerbattle_no_intro TRAINER_RIVAL_SS_ANNE_BULBASAUR, SSAnne_2F_Corridor_Text_RivalDefeat
 	return
 
+SSAnne_2F_Corridor_EventScript_RivalChikorita::
+	trainerbattle_no_intro TRAINER_RIVAL_SS_ANNE_CHIKORITA, SSAnne_2F_Corridor_Text_RivalDefeat
+	return
+
+SSAnne_2F_Corridor_EventScript_RivalTreecko::
+	trainerbattle_no_intro TRAINER_RIVAL_SS_ANNE_TREECKO, SSAnne_2F_Corridor_Text_RivalDefeat
+	return
+
 SSAnne_2F_Corridor_EventScript_RivalCharmander::
 	trainerbattle_no_intro TRAINER_RIVAL_SS_ANNE_CHARMANDER, SSAnne_2F_Corridor_Text_RivalDefeat
+	return
+
+SSAnne_2F_Corridor_EventScript_RivalCyndaquil::
+	trainerbattle_no_intro TRAINER_RIVAL_SS_ANNE_CYNDAQUIL, SSAnne_2F_Corridor_Text_RivalDefeat
+	return
+
+SSAnne_2F_Corridor_EventScript_RivalTorchic::
+	trainerbattle_no_intro TRAINER_RIVAL_SS_ANNE_TORCHIC, SSAnne_2F_Corridor_Text_RivalDefeat
 	return
 
 SSAnne_2F_Corridor_EventScript_RivalExitLeft::

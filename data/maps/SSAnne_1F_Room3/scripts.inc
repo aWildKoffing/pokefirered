@@ -16,5 +16,10 @@ SSAnne_1F_Room3_EventScript_Wigglytuff::
 	playmoncry SPECIES_WIGGLYTUFF, CRY_MODE_NORMAL
 	msgbox SSAnne_1F_Room3_Text_Wigglytuff
 	waitmoncry
+	setvar VAR_0x8004, SPECIES_WIGGLYTUFF
+	special SetSeenMon
+	showmonpic SPECIES_WIGGLYTUFF, 10, 3
+	waitbuttonpress
+	hidemonpic
 	release
 	end

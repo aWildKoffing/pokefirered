@@ -770,11 +770,18 @@
 #define TRAINER_RIVAL_CERULEAN_MUDKIP            758
 #define TRAINER_RIVAL_CERULEAN_TREECKO           759
 #define TRAINER_RIVAL_CERULEAN_TORCHIC           760
+#define TRAINER_RIVAL_SS_ANNE_TOTODILE           761
+#define TRAINER_RIVAL_SS_ANNE_CHIKORITA          762
+#define TRAINER_RIVAL_SS_ANNE_CYNDAQUIL          763
+#define TRAINER_RIVAL_SS_ANNE_MUDKIP             764
+#define TRAINER_RIVAL_SS_ANNE_TREECKO            765
+#define TRAINER_RIVAL_SS_ANNE_TORCHIC            766
 
-#define TRAINER_BRITTANY_EARLY                   761
-#define TRAINER_NICK_CERULEAN                    762
-#define TRAINER_MT_MOON_BEN                      763
-#define NUM_TRAINERS                             764
-#define MAX_TRAINERS_COUNT                       768
+#define TRAINER_BRITTANY_EARLY                   767
+#define TRAINER_NICK_CERULEAN                    768
+#define TRAINER_MT_MOON_BEN                      769
+
+#define NUM_TRAINERS                             770
+#define MAX_TRAINERS_COUNT                       800
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

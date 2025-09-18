@@ -85,39 +85,39 @@ CeruleanCity_EventScript_EarlyRivalChoseFire::
 	return
 
 CeruleanCity_EventScript_RivalSquirtle::
-	trainerbattle_no_intro TRAINER_RIVAL_CERULEAN_SQUIRTLE, CeruleanCity_Text_RivalDefeat
+	trainerbattle_earlyrival TRAINER_RIVAL_CERULEAN_SQUIRTLE, 0, CeruleanCity_Text_RivalDefeat, CeruleanCity_Text_RivalVictory
 	return
 
 CeruleanCity_EventScript_RivalTotodile::
-	trainerbattle_no_intro TRAINER_RIVAL_CERULEAN_TOTODILE, CeruleanCity_Text_RivalDefeat
+	trainerbattle_earlyrival TRAINER_RIVAL_CERULEAN_TOTODILE, 0, CeruleanCity_Text_RivalDefeat, CeruleanCity_Text_RivalVictory
 	return
 
 CeruleanCity_EventScript_RivalMudkip::
-	trainerbattle_no_intro TRAINER_RIVAL_CERULEAN_MUDKIP, CeruleanCity_Text_RivalDefeat
+	trainerbattle_earlyrival TRAINER_RIVAL_CERULEAN_MUDKIP, 0, CeruleanCity_Text_RivalDefeat, CeruleanCity_Text_RivalVictory
 	return
 
 CeruleanCity_EventScript_RivalBulbasaur::
-	trainerbattle_no_intro TRAINER_RIVAL_CERULEAN_BULBASAUR, CeruleanCity_Text_RivalDefeat
+	trainerbattle_earlyrival TRAINER_RIVAL_CERULEAN_BULBASAUR, 0, CeruleanCity_Text_RivalDefeat, CeruleanCity_Text_RivalVictory
 	return
 
 CeruleanCity_EventScript_RivalChikorita::
-	trainerbattle_no_intro TRAINER_RIVAL_CERULEAN_CHIKORITA, CeruleanCity_Text_RivalDefeat
+	trainerbattle_earlyrival TRAINER_RIVAL_CERULEAN_CHIKORITA, 0, CeruleanCity_Text_RivalDefeat, CeruleanCity_Text_RivalVictory
 	return
 
 CeruleanCity_EventScript_RivalTreecko::
-	trainerbattle_no_intro TRAINER_RIVAL_CERULEAN_TREECKO, CeruleanCity_Text_RivalDefeat
+	trainerbattle_earlyrival TRAINER_RIVAL_CERULEAN_TREECKO, 0, CeruleanCity_Text_RivalDefeat, CeruleanCity_Text_RivalVictory
 	return
 
 CeruleanCity_EventScript_RivalCharmander::
-	trainerbattle_no_intro TRAINER_RIVAL_CERULEAN_CHARMANDER, CeruleanCity_Text_RivalDefeat
+	trainerbattle_earlyrival TRAINER_RIVAL_CERULEAN_CHARMANDER, 0, CeruleanCity_Text_RivalDefeat, CeruleanCity_Text_RivalVictory
 	return
 
 CeruleanCity_EventScript_RivalCyndaquil::
-	trainerbattle_no_intro TRAINER_RIVAL_CERULEAN_CYNDAQUIL, CeruleanCity_Text_RivalDefeat
+	trainerbattle_earlyrival TRAINER_RIVAL_CERULEAN_CYNDAQUIL, 0, CeruleanCity_Text_RivalDefeat, CeruleanCity_Text_RivalVictory
 	return
 
 CeruleanCity_EventScript_RivalTorchic::
-	trainerbattle_no_intro TRAINER_RIVAL_CERULEAN_TORCHIC, CeruleanCity_Text_RivalDefeat
+	trainerbattle_earlyrival TRAINER_RIVAL_CERULEAN_TORCHIC, 0, CeruleanCity_Text_RivalDefeat, CeruleanCity_Text_RivalVictory
 	return
 
 CeruleanCity_EventScript_RivalStartExit::
@@ -398,4 +398,22 @@ CeruleanCity_EventScript_GymSign::
 	famechecker FAMECHECKER_MISTY, 0
 	msgbox CeruleanCity_Text_GymSign
 	releaseall
+	end
+
+CeruleanCity_EventScript_Nick::
+	lock
+	faceplayer
+	goto_if_eq VAR_CERULEAN_NICK_INTRO_DONE, 1, .NickDoBattle
+	msgbox CeruleanCity_Text_NickIntro
+	setvar VAR_CERULEAN_NICK_INTRO_DONE, 1
+	goto .NickEnd
+.NickDoBattle:
+	msgbox CeruleanCity_Text_NickWantToBattle
+	trainerbattle_earlyrival TRAINER_NICK_CERULEAN, 0, CeruleanCity_Text_NickDefeat, CeruleanCity_Text_NickVictory
+	fadescreen FADE_TO_BLACK
+	removeobject LOCALID_CERULEAN_CHALLENGER_NICK
+	fadescreen FADE_FROM_BLACK
+	goto .NickEnd
+.NickEnd:
+	release
 	end

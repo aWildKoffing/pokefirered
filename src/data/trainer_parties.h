@@ -11205,3 +11205,11 @@ static const struct TrainerMonNoItemDefaultMoves sParty_ChallengerBrittanyEarly[
         .species = SPECIES_EEVEE,
     },
 };
+
+static const struct TrainerMonNoItemDefaultMoves sParty_ChallengerNickCerulean[] = {
+    {
+        .iv = 0,
+        .lvl = 20,
+        .species = SPECIES_BELDUM,
+    },
+};

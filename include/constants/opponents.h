@@ -772,7 +772,8 @@
 #define TRAINER_RIVAL_CERULEAN_TORCHIC           760
 
 #define TRAINER_BRITTANY_EARLY                   761
-#define NUM_TRAINERS                             762
+#define TRAINER_NICK_CERULEAN                    762
+#define NUM_TRAINERS                             763
 #define MAX_TRAINERS_COUNT                       768
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

@@ -120,10 +120,10 @@ SilphCo_7F_Text_RivalDefeat::
     .string "ROCKET!$"
 
 SilphCo_7F_Text_RivalVictory::
-    .string "{RIVAL}“おまえなあ‥\p"
-    .string "こんな　うでまえじゃ\n"
-    .string "まだまだ‥\l"
-    .string "いちにんまえ　とは　いえないぜ$"
+    .string "{RIVAL}: Seriously, pal...\p"
+    .string "With skills like this,\n"
+    .string "you’ve still got a long way to go.\l"
+    .string "You’re not a full-fledged trainer yet!$"
 
 SilphCo_7F_Text_RivalPostBattle::
     .string "Well, {PLAYER}!\n"

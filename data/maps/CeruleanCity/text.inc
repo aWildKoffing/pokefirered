@@ -44,8 +44,8 @@ CeruleanCity_Text_ExplainFameCheckerSmellYa::
 
 @ RB translation: "Heh! You're no match for my genius!"
 CeruleanCity_Text_RivalVictory::
-    .string "なんたって！\n"
-    .string "おれは　てんさい　だからよ！$"
+    .string "{RIVAL}: Heh!\n"
+    .string "You're no match for my genius!$"
 
 CeruleanCity_Text_GruntIntro::
     .string "Hey! Stay out!\n"
@@ -180,3 +180,34 @@ CeruleanCity_Text_GymSign::
     .string "LEADER: MISTY\l"
     .string "The Tomboyish Mermaid!$"
 
+CeruleanCity_Text_NickIntro::
+    .string "Oh, hi there. I'm NICK.\n"
+    .string "Your name is?\p"
+    .string "{PLAYER}...\p"
+    .string "It's nice to meet you.\p"
+    .string "Ah, so you're a trainer.\n"
+    .string "Me? I'm just hanging out.\p"
+    .string "I like CERULEAN CITY.\n"
+    .string "The music is pleasant.$"
+
+CeruleanCity_Text_NickWantToBattle::
+    .string "A battle?\p"
+    .string "Haha, no...\p"
+    .string "I'm much too strong for you.\p"
+    .string "......\p"
+    .string "Well, if you insist. I have\n"
+    .string "something I've been training.\p"
+    .string "It's not truly battle tested.\n"
+    .string "Let's see what you've got!$"
+
+CeruleanCity_Text_NickDefeat::
+    .string "Well done. You definitely\n"
+    .string "have potential as a trainer.\p"
+    .string "I'll be keeping an eye on you!$"
+
+CeruleanCity_Text_NickVictory::
+    .string "Hmph.\p"
+    .string "I can't say I'm surprised.\p"
+    .string "Hopefully you learned a\n"
+    .string "thing or two!\p"
+    .string "See ya!$"

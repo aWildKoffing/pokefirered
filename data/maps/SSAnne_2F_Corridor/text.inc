@@ -22,9 +22,10 @@ SSAnne_2F_Corridor_Text_RivalDefeat::
 
 SSAnne_2F_Corridor_Text_RivalVictory::
     .string "{PLAYER}‥！\n"
-    .string "ふなよい　してるのか！\p"
-    .string "もっと　からだ\n"
-    .string "きたえた　ほうが　いいぜ！$"
+    .string "Are you seasick!?\p"
+    .string "You oughta toughen up!\n"
+    .string "I need a strong rival to\n"
+    .string "keep me sharp!$"
 
 SSAnne_2F_Corridor_Text_RivalPostBattle::
     .string "{RIVAL}: I heard there was a CUT\n"

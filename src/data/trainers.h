@@ -7613,4 +7613,14 @@ const struct Trainer gTrainers[] = {
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
         .party = NO_ITEM_DEFAULT_MOVES(sParty_ChallengerBrittanyEarly),
     },
+    [TRAINER_NICK_CERULEAN] = {
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
+        .trainerPic = TRAINER_PIC_RS_BRENDAN_1,
+        .trainerName = _("NICK"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+        .party = NO_ITEM_DEFAULT_MOVES(sParty_ChallengerNickCerulean),
+    },
 };

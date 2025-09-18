@@ -1209,7 +1209,7 @@ PalletTown_ProfessorOaksLab_Movement_RivalExit::
 	walk_down
 	step_end
 
-// "bulbasaur ball is grass starter for chosen region
+// bulbasaur ball is grass starter for chosen region
 PalletTown_ProfessorOaksLab_EventScript_BulbasaurBall::
 	lock
 	faceplayer

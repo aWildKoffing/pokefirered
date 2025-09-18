@@ -236,11 +236,17 @@ PalletTown_ProfessorOaksLab_Text_OakCompleteMonGuideWasMyDream::
     .string "To make a complete guide on all\n"
     .string "the POKéMON in the world…\p"
     .string "That was my dream!\p"
-    .string "But, I'm too old.\n"
+    .string "But, I'm too damn old now.\n"
     .string "I can't get the job done.\p"
     .string "So, I want you two to fulfill my\n"
-    .string "dream for me.\p"
-    .string "Get moving, you two.\p"
+    .string "dream for me...\p"
+    .string "Oh!\p" 
+    .string "I almost forgot to mention...\n"
+    .string "If you want to earn experience after\p"
+    .string "successfully catching a POKéMON,\n"
+    .string "go talk to that kid with the GameBoy.\p"
+    .string "You can change the setting anytime!\p"
+    .string "Now get moving, you two.\p"
     .string "This is a great undertaking in\n"
     .string "POKéMON history!$"
 
@@ -401,16 +407,16 @@ PalletTown_ProfessorOaksLab_Text_GBAKidChangeSetting::
     .string "modify some in-game settings.$"
 
 PalletTown_ProfessorOaksLab_Text_GBAKidChangeExpSetting::
-    .string "All I know how to change right now\n"
-    .string "is the experience-on-capture setting.\p"
+    .string "All I can do right now is toggle\n"
+    .string "the XP-on-capture setting.\p"
     .string "So, do you want to earn experience\n"
     .string "after catching a POKéMON?$"
 
 PalletTown_ProfessorOaksLab_Text_GBAKidConfirmSettingOff::
-    .string "I've turned experience-on-capture off!$"
+    .string "OK I've turned XP the setting off!$"
 
 PalletTown_ProfessorOaksLab_Text_GBAKidConfirmSettingOn::
-    .string "I've turned experience-on-capture on!$"
+    .string "OK I've turned XP the setting on!$"
 
 PalletTown_ProfessorOaksLab_Text_GBAKidEnd::
-    .string "Alright- go get 'em!$"
+    .string "Alright, go get 'em!$"

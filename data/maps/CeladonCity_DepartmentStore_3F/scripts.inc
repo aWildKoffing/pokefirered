@@ -48,3 +48,28 @@ CeladonCity_DepartmentStore_3F_EventScript_FloorSign::
 CeladonCity_DepartmentStore_3F_EventScript_Poster::
 	msgbox CeladonCity_DepartmentStore_3F_Text_RedGreenBothArePokemon, MSGBOX_SIGN
 	end
+
+CeladonCity_DepartmentStore_3F_EventScript_Clerk::
+	goto_if_questlog EventScript_ReleaseEnd
+	lock
+	faceplayer
+	message Text_MayIHelpYou
+	waitmessage
+	pokemart CeladonCity_DepartmentStore_3F_Items
+	msgbox Text_PleaseComeAgain
+	release
+	end
+
+	.align 2
+CeladonCity_DepartmentStore_3F_Items::
+	.2byte ITEM_POKE_DOLL
+	.2byte ITEM_FLUFFY_TAIL
+	.2byte ITEM_RETRO_MAIL
+	.2byte ITEM_ETHER
+	.2byte ITEM_MAX_ETHER
+	.2byte ITEM_ELIXIR
+	.2byte ITEM_MAX_ELIXIR
+	.2byte ITEM_PP_UP
+	.2byte ITEM_NONE
+	release
+	end

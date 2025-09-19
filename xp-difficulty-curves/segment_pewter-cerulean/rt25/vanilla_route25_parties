@@ -1,0 +1,103 @@
+static const struct TrainerMonNoItemDefaultMoves sParty_HikerFranklin[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_MACHOP,
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_GEODUDE,
+    },
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_HikerWayne[] = {
+    {
+        .iv = 0,
+        .lvl = 17,
+        .species = SPECIES_ONIX,
+    },
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_YoungsterJoey[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_RATTATA,
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_SPEAROW,
+    },
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_YoungsterDan[] = {
+    {
+        .iv = 0,
+        .lvl = 17,
+        .species = SPECIES_SLOWPOKE,
+    },
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_PicnickerKelsey[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_NIDORAN_M,
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_NIDORAN_F,
+    },
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_HikerNob[] = {
+    {
+        .iv = 0,
+        .lvl = 13,
+        .species = SPECIES_GEODUDE,
+    },
+    {
+        .iv = 0,
+        .lvl = 13,
+        .species = SPECIES_GEODUDE,
+    },
+    {
+        .iv = 0,
+        .lvl = 13,
+        .species = SPECIES_MACHOP,
+    },
+    {
+        .iv = 0,
+        .lvl = 13,
+        .species = SPECIES_GEODUDE,
+    },
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_CamperFlint[] = {
+    {
+        .iv = 0,
+        .lvl = 14,
+        .species = SPECIES_RATTATA,
+    },
+    {
+        .iv = 0,
+        .lvl = 14,
+        .species = SPECIES_EKANS,
+    },
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_YoungsterChad[] = {
+    {
+        .iv = 0,
+        .lvl = 14,
+        .species = SPECIES_EKANS,
+    },
+    {
+        .iv = 0,
+        .lvl = 14,
+        .species = SPECIES_SANDSHREW,
+    },
+};

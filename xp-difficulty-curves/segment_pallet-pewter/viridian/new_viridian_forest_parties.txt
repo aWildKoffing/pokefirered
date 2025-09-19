@@ -1,0 +1,70 @@
+new viridian forest parties 
+
+static const struct TrainerMonNoItemDefaultMoves sParty_BugCatcherSammy[] = {
+    {
+        .iv = 20,
+        .lvl = 8,
+        .species = SPECIES_PINECO,
+    },
+};
+
+
+static const struct TrainerMonNoItemDefaultMoves sParty_BugCatcherCharlie[] = {
+    {
+        .iv = 0,
+        .lvl = 7,
+        .species = SPECIES_SPINARAK,
+    },
+    {
+        .iv = 0,
+        .lvl = 7,
+        .species = SPECIES_METAPOD,
+    },
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_BugCatcherAnthony[] = {
+    {
+        .iv = 0,
+        .lvl = 7,
+        .species = SPECIES_WEEDLE,
+    },
+    {
+        .iv = 0,
+        .lvl = 8,
+        .species = SPECIES_LEDYBA,
+    },
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_BugCatcherDoug[] = {
+    {
+        .iv = 0,
+        .lvl = 7,
+        .species = SPECIES_SPINARAK,
+    },
+    {
+        .iv = 0,
+        .lvl = 7,
+        .species = SPECIES_KAKUNA,
+    },
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_BugCatcherRick[] = {
+    {
+        .iv = 10,
+        .lvl = 6,
+        .species = SPECIES_PARAS,
+    },
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_ChallengerBrittanyEarly[] = {
+    {
+        .iv = 10,
+        .lvl = 7,
+        .species = SPECIES_SENTRET,
+    },
+    {
+        .iv = 10,
+        .lvl = 9,
+        .species = SPECIES_EEVEE,
+    },
+};

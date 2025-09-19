@@ -13,7 +13,7 @@ MtMoon_1F_Text_MarcosPostBattle::
 
 MtMoon_1F_Text_JoshIntro::
     .string "Did you come to explore the cave,\n"
-    .string "too?$"
+    .string "too? I came from CERULEAN.$"
 
 MtMoon_1F_Text_JoshDefeat::
     .string "Losing stinks!\n"

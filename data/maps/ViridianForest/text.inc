@@ -10,7 +10,7 @@ ViridianForest_Text_RickIntro::
     .string "Let's battle 'em!$"
 
 ViridianForest_Text_RickDefeat::
-    .string "No!\nCATERPIE can't hack it!$"
+    .string "No!\nPARAS can't hack it!$"
 
 ViridianForest_Text_RickPostBattle::
     .string "Ssh! You'll scare the bugs away.\n"
@@ -31,7 +31,9 @@ ViridianForest_Text_DougPostBattle::
 
 ViridianForest_Text_SammyIntro::
     .string "Hey, wait up!\n"
-    .string "What's the hurry? Why the rush?$"
+    .string "What's the hurry?\p"
+    .string "I've got the strongest\n"
+    .string "bug POKéMON here!$"
 
 ViridianForest_Text_SammyDefeat::
     .string "I give!\n"
@@ -39,9 +41,7 @@ ViridianForest_Text_SammyDefeat::
 
 ViridianForest_Text_SammyPostBattle::
     .string "Sometimes, you can find stuff on\n"
-    .string "the ground.\p"
-    .string "I'm looking for the stuff I\n"
-    .string "dropped. Can you help me?$"
+    .string "the ground.$"
 
 ViridianForest_Text_AnthonyIntro::
     .string "I might be little, but I won't like\n"

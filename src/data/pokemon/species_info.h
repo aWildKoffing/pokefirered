@@ -2761,10 +2761,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
     },
+    // buffed onix stats to make it more viable
+    // before total 385, new total 425
     [SPECIES_ONIX] =
     {
-        .baseHP = 35,
-        .baseAttack = 45,
+        .baseHP = 45,
+        .baseAttack = 75,
         .baseDefense = 160,
         .baseSpeed = 70,
         .baseSpAttack = 30,

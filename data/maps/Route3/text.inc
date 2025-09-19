@@ -5,8 +5,8 @@ Route3_Text_TunnelFromCeruleanTiring::
     .string "lot out of you!$"
 
 Route3_Text_ColtonIntro::
-    .string "Hey!\n"
-    .string "I saw you in VIRIDIAN FOREST!$"
+    .string "Hey! Didn't I see you\n"
+    .string "in VIRIDIAN FOREST?$"
 
 Route3_Text_ColtonDefeat::
     .string "You beat me again!$"
@@ -42,8 +42,8 @@ Route3_Text_JanicePostBattle::
     .string "don't want to battle!$"
 
 Route3_Text_GregIntro::
-    .string "Are you a TRAINER?\n"
-    .string "Let's get with it right away!$"
+    .string "I found this POKéMON in\n"
+    .string "VIRIDIAN FOREST, it's tough!$"
 
 Route3_Text_GregDefeat::
     .string "If I had new POKéMON, I would've\n"

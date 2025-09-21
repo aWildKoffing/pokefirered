@@ -2637,6 +2637,38 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
                     RecordItemEffectBattle(battlerId, battlerHoldEffect);
                 }
                 break;
+            case HOLD_EFFECT_BLACK_SLUDGE:
+                // if the pokemon is poison type, heal it instead of damaging it
+                if (IS_BATTLER_OF_TYPE(battlerId, TYPE_POISON))
+                {
+                    if (gBattleMons[battlerId].hp < gBattleMons[battlerId].maxHP && !moveTurn)
+                    {
+                        gBattleMoveDamage = gBattleMons[battlerId].maxHP / 16;
+                        if (gBattleMoveDamage == 0)
+                            gBattleMoveDamage = 1;
+                        if (gBattleMons[battlerId].hp + gBattleMoveDamage > gBattleMons[battlerId].maxHP)
+                            gBattleMoveDamage = gBattleMons[battlerId].maxHP - gBattleMons[battlerId].hp;
+                        gBattleMoveDamage *= -1;
+                        BattleScriptExecute(BattleScript_ItemHealHP_End2);
+                        effect = ITEM_HP_CHANGE;
+                        RecordItemEffectBattle(battlerId, battlerHoldEffect);
+                    }
+                }
+                // steel types are immune to the damage
+                else if (!IS_BATTLER_OF_TYPE(battlerId, TYPE_STEEL) && gBattleMons[battlerId].ability != ABILITY_IMMUNITY)
+                {
+
+                    gBattleMons[battlerId].status1 &= STATUS1_TOXIC_POISON;
+
+                    BattleScriptExecute(BattleScript_MoveEffectToxic);
+                    effect = ITEM_STATUS_CHANGE;
+                    RecordItemEffectBattle(battlerId, battlerHoldEffect);
+                }
+                else
+                {
+                    // no effect
+                }
+                break;
             case HOLD_EFFECT_CONFUSE_SPICY:
                 TRY_EAT_CONFUSE_BERRY(FLAVOR_SPICY);
                 break;

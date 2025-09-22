@@ -154,5 +154,6 @@ static const u16 sEasyChatGroup_Move1[] = {
     MOVE_WHIRLPOOL,
     MOVE_WILL_O_WISP,
     MOVE_WITHDRAW,
+    MOVE_X_SCISSOR,
     MOVE_YAWN,
 };

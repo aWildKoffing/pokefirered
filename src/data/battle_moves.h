@@ -536,7 +536,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_TWINEEDLE] =
     {
         .effect = EFFECT_TWINEEDLE,
-        .power = 25,
+        .power = 30,
         .type = TYPE_BUG,
         .accuracy = 100,
         .pp = 20,
@@ -549,7 +549,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_PIN_MISSILE] =
     {
         .effect = EFFECT_MULTI_HIT,
-        .power = 14,
+        .power = 18,
         .type = TYPE_BUG,
         .accuracy = 85,
         .pp = 20,
@@ -3968,7 +3968,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_POISON_FANG] =
     {
         .effect = EFFECT_POISON_FANG,
-        .power = 50,
+        .power = 60,
         .type = TYPE_POISON,
         .accuracy = 100,
         .pp = 15,
@@ -4449,7 +4449,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_POISON_TAIL] =
     {
         .effect = EFFECT_POISON_TAIL,
-        .power = 50,
+        .power = 60,
         .type = TYPE_POISON,
         .accuracy = 100,
         .pp = 25,
@@ -4613,5 +4613,18 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
+    },
+
+    [MOVE_X_SCISSOR] =
+    {
+        .effect = EFFECT_HIT,
+        .power = 80,
+        .type = TYPE_BUG,
+        .accuracy = 100,
+        .pp = 15,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
     },
 };

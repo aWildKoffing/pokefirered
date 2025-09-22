@@ -1927,15 +1927,18 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM46_THIEF)
                                         | TMHM(TM47_STEEL_WING)
                                         | TMHM(HM01_CUT)
-                                        | TMHM(HM02_FLY)),
+                                        | TMHM(HM02_FLY)
+                                        | TMHM(HM06_ROCK_SMASH)),
 
     [SPECIES_DODUO]       = TMHM_LEARNSET(TMHM(TM06_TOXIC)
                                         | TMHM(TM10_HIDDEN_POWER)
                                         | TMHM(TM11_SUNNY_DAY)
                                         | TMHM(TM17_PROTECT)
                                         | TMHM(TM21_FRUSTRATION)
+                                        | TMHM(TM26_EARTHQUAKE)
                                         | TMHM(TM27_RETURN)
                                         | TMHM(TM32_DOUBLE_TEAM)
+                                        | TMHM(TM37_SANDSTORM)
                                         | TMHM(TM40_AERIAL_ACE)
                                         | TMHM(TM42_FACADE)
                                         | TMHM(TM43_SECRET_POWER)
@@ -1943,7 +1946,8 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM46_THIEF)
                                         | TMHM(TM47_STEEL_WING)
-                                        | TMHM(HM02_FLY)),
+                                        | TMHM(HM02_FLY)
+                                        | TMHM(HM06_ROCK_SMASH)),
 
     [SPECIES_DODRIO]      = TMHM_LEARNSET(TMHM(TM06_TOXIC)
                                         | TMHM(TM10_HIDDEN_POWER)
@@ -1952,8 +1956,10 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM15_HYPER_BEAM)
                                         | TMHM(TM17_PROTECT)
                                         | TMHM(TM21_FRUSTRATION)
+                                        | TMHM(TM26_EARTHQUAKE)
                                         | TMHM(TM27_RETURN)
                                         | TMHM(TM32_DOUBLE_TEAM)
+                                        | TMHM(TM37_SANDSTORM)
                                         | TMHM(TM40_AERIAL_ACE)
                                         | TMHM(TM41_TORMENT)
                                         | TMHM(TM42_FACADE)
@@ -1962,7 +1968,8 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM46_THIEF)
                                         | TMHM(TM47_STEEL_WING)
-                                        | TMHM(HM02_FLY)),
+                                        | TMHM(HM02_FLY)
+                                        | TMHM(HM06_ROCK_SMASH)),
 
     [SPECIES_SEEL]        = TMHM_LEARNSET(TMHM(TM03_WATER_PULSE)
                                         | TMHM(TM06_TOXIC)
@@ -3190,6 +3197,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM50_OVERHEAT)),
 
     [SPECIES_PORYGON]     = TMHM_LEARNSET(TMHM(TM06_TOXIC)
+                                        | TMHM(TM07_HAIL)
                                         | TMHM(TM10_HIDDEN_POWER)
                                         | TMHM(TM11_SUNNY_DAY)
                                         | TMHM(TM13_ICE_BEAM)
@@ -3207,6 +3215,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM30_SHADOW_BALL)
                                         | TMHM(TM32_DOUBLE_TEAM)
                                         | TMHM(TM34_SHOCK_WAVE)
+                                        | TMHM(TM35_FLAMETHROWER)
                                         | TMHM(TM40_AERIAL_ACE)
                                         | TMHM(TM42_FACADE)
                                         | TMHM(TM43_SECRET_POWER)

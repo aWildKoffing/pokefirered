@@ -375,6 +375,7 @@ gBattleAnims_Moves::
 	.4byte Move_WATER_PULSE
 	.4byte Move_DOOM_DESIRE
 	.4byte Move_PSYCHO_BOOST
+	.4byte Move_X_SCISSOR
 	.4byte Move_COUNT @ cannot be reached, because last move is Psycho Boost
 
 	.align 2
@@ -6573,6 +6574,7 @@ Move_KARATE_CHOP:
 	blendoff
 	end
 
+Move_X_SCISSOR:
 Move_CROSS_CHOP:
 	loadspritegfx ANIM_TAG_HANDS_AND_FEET
 	loadspritegfx ANIM_TAG_CROSS_IMPACT

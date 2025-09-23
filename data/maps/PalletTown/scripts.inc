@@ -421,9 +421,24 @@ PalletTown_EventScript_SignLadyTrigger::
 	applymovement LOCALID_PALLET_SIGN_LADY, Common_Movement_WalkInPlaceFasterRight
 	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
 	waitmovement 0
-	call PalletTown_EventScript_SignLadyShowSign
+	call PalletTown_EventScript_GetOaksParcelEarlier
 	releaseall
 	end
+
+PalletTown_EventScript_GetOaksParcelEarlier::
+	textcolor NPC_TEXT_COLOR_FEMALE
+	msgbox PalletTown_Text_FoundThisParcel
+	@ below is taken from the original sign lady scripts
+	setflag FLAG_OPENED_START_MENU
+	setvar VAR_MAP_SCENE_PALLET_TOWN_SIGN_LADY, 1
+	setvar SIGN_LADY_READY, FALSE
+	special SetWalkingIntoSignVars
+	special DisableMsgBoxWalkaway
+	@ set var to bypass viridian part and for correct oak lab scene
+	giveitem_msg ViridianCity_Mart_Text_ReceivedOaksParcelFromClerk, ITEM_OAKS_PARCEL, 1, MUS_OBTAIN_KEY_ITEM
+	setvar VAR_MAP_SCENE_VIRIDIAN_CITY_MART, 1
+	setvar VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 5
+	return
 
 PalletTown_EventScript_SignLadyShowSign::
 	textcolor NPC_TEXT_COLOR_FEMALE

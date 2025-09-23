@@ -225,12 +225,7 @@ PalletTown_ProfessorOaksLab_Text_ReceivedFifteenPokeBalls::
 
 PalletTown_ProfessorOaksLab_Text_OakExplainCatching::
     .string "When a wild POKéMON appears,\n"
-    .string "it's fair game.\p"
-    .string "Just throw a POKé BALL at it and\n"
-    .string "try to catch it!\p"
-    .string "This won't always work, however.\p"
-    .string "A healthy POKéMON can escape.\n"
-    .string "You have to be lucky!$"
+    .string "use a POKé BALL to catch it.$"
 
 PalletTown_ProfessorOaksLab_Text_OakCompleteMonGuideWasMyDream::
     .string "To make a complete guide on all\n"
@@ -413,10 +408,10 @@ PalletTown_ProfessorOaksLab_Text_GBAKidChangeExpSetting::
     .string "after catching a POKéMON?$"
 
 PalletTown_ProfessorOaksLab_Text_GBAKidConfirmSettingOff::
-    .string "OK I've turned XP the setting off!$"
+    .string "OK I've turned the setting off!$"
 
 PalletTown_ProfessorOaksLab_Text_GBAKidConfirmSettingOn::
-    .string "OK I've turned XP the setting on!$"
+    .string "OK I've turned the setting on!$"
 
 PalletTown_ProfessorOaksLab_Text_GBAKidEnd::
     .string "Alright, go get 'em!$"

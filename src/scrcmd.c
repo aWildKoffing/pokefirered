@@ -29,6 +29,7 @@
 #include "money.h"
 #include "coins.h"
 #include "battle_setup.h"
+#include "battle.h"
 #include "shop.h"
 #include "slot_machine.h"
 #include "field_effect.h"
@@ -2247,5 +2248,42 @@ bool8 ScrCmd_setmonmetlocation(struct ScriptContext * ctx)
 
     if (partyIndex < PARTY_SIZE)
         SetMonData(&gPlayerParty[partyIndex], MON_DATA_MET_LOCATION, &location);
+    return FALSE;
+}
+
+static u8 GetPlayerPartySize(void)
+{
+    u8 count = 0;
+    u8 i = 0;
+    for(i; i < PARTY_SIZE; ++i)
+    {
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SANITY_HAS_SPECIES, NULL) == 1 && !GetMonData(&gPlayerParty[i], MON_DATA_SANITY_IS_EGG, NULL))
+        {
+            count++;
+        }
+    }
+    return count;
+}
+
+static u8 GetPartySizeLimit(u16 trainerId)
+{
+    return gTrainers[trainerId].partySize;
+}
+
+
+bool8 ScrCmd_checkgympartylimit(struct ScriptContext * ctx)
+{
+    // get party size limit based on gym leader
+    u16 trainerId = VarGet(ScriptReadHalfword(ctx));
+    u8 partyLimit = GetPartySizeLimit(trainerId);
+    
+    // get trainers current party size
+    u8 partySize = GetPlayerPartySize();
+
+    // set vars to be interpreted in event script
+    VarSet(VAR_0x8001, partyLimit);
+    VarSet(VAR_0x8002, partySize);
+    VarSet(VAR_RESULT, ((partySize <= partyLimit) ? 1 : 0));
+
     return FALSE;
 }

@@ -417,3 +417,53 @@ CeruleanCity_EventScript_Nick::
 .NickEnd:
 	release
 	end
+
+CeruleanCity_EventScript_GymEntrance::
+	lock
+	applymovement LOCALID_PEWTER_GYMKEEPER, CeruleanCity_Mov_GuardHalt
+	applymovement LOCALID_PLAYER, CeruleanCity_Mov_PlayerStepBack
+	msgbox CeruleanCity_Text_GymGateKeeper_Halt, MSGBOX_DEFAULT
+	delay 20
+	checkgympartylimit TRAINER_LEADER_MISTY
+	compare VAR_RESULT, 1
+	goto_if_eq CeruleanGymGateKeeperAllowEntry
+	// else block the player from entering
+	msgbox CeruleanCity_Text_GymGateKeeper_Deny, MSGBOX_DEFAULT
+	applymovement LOCALID_PEWTER_GYMKEEPER, CeruleanCity_Mov_GuardReset
+	waitmovement LOCALID_PEWTER_GYMKEEPER
+	release
+	end
+
+CeruleanCity_Mov_GuardFacePlayer::
+	faceplayer
+	step_end
+
+CeruleanGymGateKeeperAllowEntry::
+	msgbox CeruleanCity_Text_GymGateKeeper_Allow, MSGBOX_DEFAULT
+	applymovement LOCALID_PEWTER_GYMKEEPER, CeruleanCity_Mov_GuardReset
+	waitmovement LOCALID_PEWTER_GYMKEEPER
+	applymovement LOCALID_PLAYER, CeruleanCity_Mov_PlayerEnterGym
+	waitmovement LOCALID_PLAYER
+	release
+	end
+
+CeruleanCity_Mov_GuardHalt:
+    face_left
+    walk_left
+	face_down
+    step_end
+
+CeruleanCity_Mov_PlayerStepBack:
+    walk_down
+	face_up
+    step_end
+
+CeruleanCity_Mov_GuardReset::
+	face_right
+    walk_right
+	face_down
+	step_end
+
+CeruleanCity_Mov_PlayerEnterGym::
+	walk_up
+	step_end

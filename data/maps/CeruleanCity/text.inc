@@ -211,3 +211,17 @@ CeruleanCity_Text_NickVictory::
     .string "Hopefully you learned a\n"
     .string "thing or two!\p"
     .string "See ya!$"
+
+CeruleanCity_Text_GymGateKeeper_Halt::
+    .string "OFFICIAL: Halt!\p"
+    .string "MISTY accepts challenges from\n"
+    .string "trainers carrying no more than\p"
+    .string "2 POKéMON in their party.$"
+
+CeruleanCity_Text_GymGateKeeper_Deny::
+    .string "Please deposit your extra POKéMON\n"
+    .string "at a PC and return.$"
+
+CeruleanCity_Text_GymGateKeeper_Allow::
+    .string "You're all set. Good luck\n"
+    .string "in the CERULEAN CITY GYM!$"

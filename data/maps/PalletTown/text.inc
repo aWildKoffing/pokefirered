@@ -65,3 +65,11 @@ PalletTown_Text_OakYouEnjoyingTraveling::
     .string "Good for you, good for you.\n"
     .string "Hohoho.$"
 
+PalletTown_Text_FoundThisParcel::
+    .string "Hiya, did you just come from\n"
+    .string "PROF. OAK'S lab?\p"
+    .string "I found this on the ground.\p"
+    .string "Would you take it to him?$"
+
+PalletTown_Text_ReceivedOaksParcel::
+    .string "{PLAYER} received OAK'S PARCEL.$"

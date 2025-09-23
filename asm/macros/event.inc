@@ -1633,6 +1633,13 @@
 	.2byte \quantity
 	.endm
 
+	@ Checks the player's party size agains the limit for the gym leader
+	@ id corresponds to the trainer ID for the gym leader from trainers.h file
+	.macro checkgympartylimit id:req
+	.byte 0xd5
+	.2byte \id
+	.endm
+
 
 @ Supplementary
 

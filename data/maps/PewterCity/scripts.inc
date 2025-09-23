@@ -841,3 +841,53 @@ PewterCity_Movement_AideExit3::
 PewterCity_Movement_WalkInPlaceLeft::
 	walk_in_place_left
 	step_end
+
+PewterCity_EventScript_GymEntrance::
+	lock
+	applymovement LOCALID_PEWTER_GYMKEEPER, PewterCity_Mov_GuardHalt
+	applymovement LOCALID_PLAYER, PewterCity_Mov_PlayerStepBack
+	msgbox PewterCity_Text_GymGateKeeper_Halt, MSGBOX_DEFAULT
+	delay 20
+	checkgympartylimit TRAINER_LEADER_BROCK
+	compare VAR_RESULT, 1
+	goto_if_eq PewterGymGateKeeperAllowEntry
+	// else block the player from entering
+	msgbox PewterCity_Text_GymGateKeeper_Deny, MSGBOX_DEFAULT
+	applymovement LOCALID_PEWTER_GYMKEEPER, PewterCity_Mov_GuardReset
+	waitmovement LOCALID_PEWTER_GYMKEEPER
+	release
+	end
+
+PewterCity_Mov_GuardFacePlayer::
+	faceplayer
+	step_end
+
+PewterGymGateKeeperAllowEntry::
+	msgbox PewterCity_Text_GymGateKeeper_Allow, MSGBOX_DEFAULT
+	applymovement LOCALID_PEWTER_GYMKEEPER, PewterCity_Mov_GuardReset
+	waitmovement LOCALID_PEWTER_GYMKEEPER
+	applymovement LOCALID_PLAYER, PewterCity_Mov_PlayerEnterGym
+	waitmovement LOCALID_PLAYER
+	release
+	end
+
+PewterCity_Mov_GuardHalt:
+    face_left
+    walk_left
+	face_down
+    step_end
+
+PewterCity_Mov_PlayerStepBack:
+    walk_down
+	face_up
+    step_end
+
+PewterCity_Mov_GuardReset::
+	face_right
+    walk_right
+	face_down
+	step_end
+
+PewterCity_Mov_PlayerEnterGym::
+	walk_up
+	step_end

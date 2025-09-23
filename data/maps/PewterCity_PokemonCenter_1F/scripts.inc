@@ -26,6 +26,11 @@ PewterCity_PokemonCenter_1F_EventScript_Jigglypuff::
 	message PewterCity_PokemonCenter_1F_Text_Jigglypuff
 	waitmessage
 	delay 455
+	setvar VAR_0x8004, SPECIES_JIGGLYPUFF
+	special SetSeenMon
+	showmonpic SPECIES_JIGGLYPUFF, 10, 3
+	waitbuttonpress
+	hidemonpic
 	playbgm MUS_POKE_CENTER, 1
 	release
 	end

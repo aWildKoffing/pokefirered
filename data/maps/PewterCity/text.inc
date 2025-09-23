@@ -152,3 +152,16 @@ PewterCity_Text_RunningShoesLetterFromMom::
     .string "you! Don't ever give up!\p"
     .string "From Mom$"
 
+PewterCity_Text_GymGateKeeper_Halt::
+    .string "OFFICIAL: Halt!\p"
+    .string "BROCK accepts challenges from\n"
+    .string "trainers carrying no more than\p"
+    .string "2 POKéMON in their party.$"
+
+PewterCity_Text_GymGateKeeper_Deny::
+    .string "Please deposit your extra POKéMON\n"
+    .string "at a PC and return.$"
+
+PewterCity_Text_GymGateKeeper_Allow::
+    .string "You're all set. Good luck\n"
+    .string "in the PEWTER CITY GYM!$"

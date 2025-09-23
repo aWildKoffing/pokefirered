@@ -67,6 +67,7 @@ static void PokeSum_PrintPageName(const u8 * str);
 static void PokeSum_PrintControlsString(const u8 * str);
 static void PrintMonLevelNickOnWindow2(const u8 * str);
 static void PokeSum_UpdateBgPriorityForPageFlip(u8 setBg0Priority, u8 keepBg1Bg2PriorityOrder);
+static void ShowOrHideFriendBarObjs(u8 invisible);
 static void ShowOrHideHpBarObjs(u8 invisible);
 static void ShowOrHideExpBarObjs(u8 invisible);
 static void PokeSum_ShowOrHideMonPicSprite(u8 invisible);
@@ -99,6 +100,7 @@ static void CreatePokerusIconObj(u16, u16);
 static void PokeSum_CreateMonMarkingsSprite(void);
 static void CreateMoveSelectionCursorObjs(u16, u16);
 static void CreateMonStatusIconObj(u16, u16);
+static void CreateFriendBarObjs(u16 tileTag, u16 palTag);
 static void CreateHpBarObjs(u16, u16);
 static void CreateExpBarObjs(u16, u16);
 static void CreateBallIconObj(void);
@@ -131,6 +133,7 @@ static void UpdateCurrentMonBufferFromPartyOrBox(struct Pokemon * mon);
 static void PokeSum_SetMonPicSpriteCallback(u16 spriteId);
 static void SpriteCB_MoveSelectionCursor(struct Sprite *sprite);
 static void UpdateMonStatusIconObj(void);
+static void UpdateFriendBarObjs(void);
 static void UpdateHpBarObjs(void);
 static void UpdateExpBarObjs(void);
 static void ShowPokerusIconObjIfHasOrHadPokerus(void);
@@ -278,6 +281,14 @@ struct HpBarObjs
     u16 palTag; /* 0x3e */
 };
 
+struct FriendBarObjs
+{
+    struct Sprite *sprites[9]; // [0],[1]=left caps, [2..7]=fill, [8]=right cap
+    u16 xpos[9];
+    u16 tileTag;
+    u16 palTag;
+};
+
 struct MonPicBounceState
 {
     u8 ALIGNED(4) animFrame; /* 0x00 */
@@ -318,6 +329,7 @@ static EWRAM_DATA struct PokemonSummaryScreenData * sMonSummaryScreen = NULL;
 static EWRAM_DATA struct Struct203B144 * sMonSkillsPrinterXpos = NULL;
 static EWRAM_DATA struct MoveSelectionCursor * sMoveSelectionCursorObjs[4] = {};
 static EWRAM_DATA struct MonStatusIconObj * sStatusIcon = NULL;
+static EWRAM_DATA struct FriendBarObjs * sFriendBarObjs = NULL;
 static EWRAM_DATA struct HpBarObjs * sHpBarObjs = NULL;
 static EWRAM_DATA struct ExpBarObjs * sExpBarObjs = NULL;
 static EWRAM_DATA struct PokerusIconObj * sPokerusIconObj = NULL;
@@ -1628,6 +1640,7 @@ static void PokeSum_HideSpritesBeforePageFlip(void)
     case PSS_PAGE_SKILLS:
         ShowOrHideHpBarObjs(TRUE);
         ShowOrHideExpBarObjs(TRUE);
+        ShowOrHideFriendBarObjs(TRUE);
         break;
     case PSS_PAGE_MOVES:
         if (sMonSummaryScreen->pageFlipDirection == 1)
@@ -1665,6 +1678,7 @@ static void PokeSum_ShowSpritesBeforePageFlip(void)
     case PSS_PAGE_INFO:
         ShowOrHideHpBarObjs(FALSE);
         ShowOrHideExpBarObjs(FALSE);
+        ShowOrHideFriendBarObjs(FALSE);
         break;
     case PSS_PAGE_SKILLS:
         break;
@@ -1673,9 +1687,11 @@ static void PokeSum_ShowSpritesBeforePageFlip(void)
         {
             ShowOrHideHpBarObjs(FALSE);
             ShowOrHideExpBarObjs(FALSE);
+            ShowOrHideFriendBarObjs(FALSE);
         }
         else
         {
+            ShowOrHideFriendBarObjs(FALSE);
             ShoworHideMoveSelectionCursor(FALSE);
             HideShowPokerusIcon(FALSE);
             PokeSum_ShowOrHideMonIconSprite(FALSE);
@@ -1987,7 +2003,7 @@ static void CB2_SetUpPSS(void)
             ShowOrHideHpBarObjs(FALSE);
             ShowOrHideExpBarObjs(FALSE);
         }
-
+        
         ShowOrHideStatusIcon(FALSE);
         HideShowPokerusIcon(FALSE);
         HideShowShinyStar(FALSE);
@@ -2326,6 +2342,8 @@ static u8 PokeSum_HandleCreateSprites(void)
         break;
     case 6:
         CreateExpBarObjs(TAG_PSS_UNK_82, TAG_PSS_UNK_82);
+        // ADD: create friendship bar assets here as well
+        CreateFriendBarObjs(TAG_PSS_FRIEND_BAR, TAG_PSS_FRIEND_BAR);
         break;
     case 7:
         CreateBallIconObj();
@@ -4389,6 +4407,138 @@ static void ShowOrHideStatusIcon(u8 invisible)
     }
 }
 
+// Position under the mon picture on the MOVES page.
+// Tweak these two to nudge where you want the strip to sit.
+#define FRIEND_BAR_X_START  15   // pixels (left cap x)
+#define FRIEND_BAR_Y        96   // pixels (vertical location)
+
+static void CreateFriendBarObjs(u16 tileTag, u16 palTag)
+{
+    u8 i;
+    u8 spriteId;
+    void *gfxBufferPtr;
+
+    sFriendBarObjs = AllocZeroed(sizeof(struct FriendBarObjs));
+    gfxBufferPtr   = AllocZeroed(0x20 * 12);
+
+    // Use the same tiles as EXP bar (neutral look) & same shared palette
+    LZ77UnCompWram(gSummaryScreen_ExpBar_Gfx, gfxBufferPtr);
+    if (gfxBufferPtr != NULL)
+    {
+        struct SpriteSheet sheet = {
+            .data = gfxBufferPtr,
+            .size = 0x20 * 12,
+            .tag  = tileTag
+        };
+        struct SpritePalette palette = {.data = gSummaryScreen_HpExpBar_Pal, .tag = palTag};
+        LoadSpriteSheet(&sheet);
+        LoadSpritePalette(&palette);
+    }
+
+    for (i = 0; i < 9; i++)
+    {
+        struct SpriteTemplate template = {
+            .tileTag      = tileTag,
+            .paletteTag   = palTag,
+            .oam          = &sHpOrExpBarOamData,       // same OAM as HP/EXP bars
+            .anims        = sHpOrExpBarAnimTable,      // same anim table (0 empty, 1..6 partial, 8 full, 9/10/11 caps)
+            .images       = NULL,
+            .affineAnims  = gDummySpriteAffineAnimTable,
+            .callback     = SpriteCallbackDummy,
+        };
+
+        sFriendBarObjs->xpos[i] = FRIEND_BAR_X_START + i * 8;
+        spriteId = CreateSprite(&template, sFriendBarObjs->xpos[i], FRIEND_BAR_Y, 0);
+        sFriendBarObjs->sprites[i] = &gSprites[spriteId];
+        sFriendBarObjs->sprites[i]->invisible  = FALSE;
+        sFriendBarObjs->sprites[i]->oam.priority = 2;
+        sFriendBarObjs->tileTag = tileTag;
+        sFriendBarObjs->palTag  = palTag;
+
+        // default to full (we’ll immediately update)
+        StartSpriteAnim(sFriendBarObjs->sprites[i], 8);
+    }
+
+    UpdateFriendBarObjs();
+    // Hidden by default on non-Moves pages; we’ll toggle it during page flips
+    ShowOrHideFriendBarObjs(TRUE);
+
+    FREE_AND_SET_NULL_IF_SET(gfxBufferPtr);
+}
+
+static void UpdateFriendBarObjs(void)
+{
+    // Bar layout mirrors the HP bar:
+    // [0]=left-end cap (9), [1]=left cap (10), [2..7]=6 fill tiles, [8]=right cap (11)
+    // We map friendship 0..255 across those 6 fill tiles.
+    const s32 pointsMax      = 255;
+    const s32 tilesFillCount = 6;                 // indices 2..7
+    const s32 pointsPerTile  = (pointsMax + tilesFillCount - 1) / tilesFillCount; // ceil(255/6)=43
+
+    u8  i;
+    s32 friendship;
+    s32 numWholeTiles;
+    s32 remainder;
+
+    if (sFriendBarObjs == NULL)
+        return;
+
+    friendship    = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_FRIENDSHIP, NULL);
+    if (friendship < 0) friendship = 0;
+    if (friendship > 255) friendship = 255;
+
+    numWholeTiles = friendship / pointsPerTile;         // 0..6 whole filled tiles
+    remainder     = friendship % pointsPerTile;         // remainder within current tile
+
+    // 1) Set all fill tiles empty first
+    for (i = 2; i <= 7; i++)
+        StartSpriteAnim(sFriendBarObjs->sprites[i], 0); // 0 = empty
+
+    // 2) Whole tiles -> anim 8 (full)
+    for (i = 0; i < numWholeTiles && i < tilesFillCount; i++)
+        StartSpriteAnim(sFriendBarObjs->sprites[2 + i], 8);
+
+    // 3) Partial tile (if not perfectly aligned)
+    if (numWholeTiles < tilesFillCount && remainder > 0)
+    {
+        // Map remainder 0..(pointsPerTile-1) into 1..6 partial fill frames
+        // The HP/EXP bar uses 6 partial frames; 8 is "full".
+        u8 animNum = (remainder * 6) / pointsPerTile; // 0..5
+        if (animNum > 6) animNum = 6;
+        if (animNum > 0)
+            StartSpriteAnim(sFriendBarObjs->sprites[2 + numWholeTiles], animNum);
+        // if animNum == 0 we keep it empty, which looks fine at tiny remainders
+    }
+
+    // 4) Caps
+    StartSpriteAnim(sFriendBarObjs->sprites[0], 9);
+    StartSpriteAnim(sFriendBarObjs->sprites[1], 10);
+    StartSpriteAnim(sFriendBarObjs->sprites[8], 11);
+}
+
+static void DestroyFriendBarObjs(void)
+{
+    u8 i;
+    if (sFriendBarObjs == NULL)
+        return;
+
+    for (i = 0; i < 9; i++)
+        if (sFriendBarObjs->sprites[i] != NULL)
+            DestroySpriteAndFreeResources(sFriendBarObjs->sprites[i]);
+
+    FREE_AND_SET_NULL_IF_SET(sFriendBarObjs);
+}
+
+static void ShowOrHideFriendBarObjs(u8 invisible)
+{
+    u8 i;
+    if (sFriendBarObjs == NULL)
+        return;
+
+    for (i = 0; i < 9; i++)
+        sFriendBarObjs->sprites[i]->invisible = invisible;
+}
+
 static void CreateHpBarObjs(u16 tileTag, u16 palTag)
 {
     u8 i;
@@ -4850,6 +5000,7 @@ static void PokeSum_DestroySprites(void)
     DestroyMoveSelectionCursorObjs();
     DestroyHpBarObjs();
     DestroyExpBarObjs();
+    DestroyFriendBarObjs();
     PokeSum_DestroyMonPicSprite();
     PokeSum_DestroyMonIconSprite();
     DestroyBallIconObj();
@@ -4869,6 +5020,7 @@ static void PokeSum_CreateSprites(void)
     PokeSum_ShowOrHideMonPicSprite(FALSE);
     UpdateHpBarObjs();
     UpdateExpBarObjs();
+    UpdateFriendBarObjs();
     PokeSum_UpdateMonMarkingsAnim();
     UpdateMonStatusIconObj();
     ShowPokerusIconObjIfHasOrHadPokerus();

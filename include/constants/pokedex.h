@@ -421,8 +421,9 @@ enum {
     NATIONAL_DEX_OLD_UNOWN_Z,
 };
 
-#define KANTO_DEX_COUNT     NATIONAL_DEX_MEW
-#define JOHTO_DEX_COUNT     NATIONAL_DEX_CELEBI
+// make kanto + johto available at start
+#define KANTO_DEX_COUNT     NATIONAL_DEX_CELEBI
+//#define JOHTO_DEX_COUNT     NATIONAL_DEX_CELEBI
 #define NATIONAL_DEX_COUNT  NATIONAL_DEX_DEOXYS
 
 // Hoenn Pokedex order

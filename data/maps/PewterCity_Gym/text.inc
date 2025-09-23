@@ -120,3 +120,7 @@ PewterCity_Gym_Text_GymStatuePlayerWon::
     .string "WINNING TRAINERS:\n"
     .string "{RIVAL}, {PLAYER}$"
 
+PewterCity_Gym_Text_NoLeavingMidChallenge:
+    .string "OFFICIAL: Once you enter a Gym,\n"
+    .string "you can’t leave mid-challenge.\p"
+    .string "Defeat the Leader, or concede.$"

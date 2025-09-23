@@ -80,3 +80,19 @@ PewterCity_Gym_EventScript_GymStatuePostVictory::
 	msgbox PewterCity_Gym_Text_GymStatuePlayerWon
 	releaseall
 	end
+
+PewterGym_EventScript_ExitBlocker::
+    goto_if_set FLAG_DEFEATED_BROCK, PewterGym_ExitBlocker_Allow
+	lock
+    msgbox PewterCity_Gym_Text_NoLeavingMidChallenge, MSGBOX_DEFAULT
+    applymovement LOCALID_PLAYER, PewterGym_Mov_PlayerStepBack
+    waitmovement 0
+    release
+    end
+
+PewterGym_ExitBlocker_Allow:
+    end
+
+PewterGym_Mov_PlayerStepBack:
+	walk_up
+    step_end

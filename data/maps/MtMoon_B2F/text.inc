@@ -71,10 +71,10 @@ MtMoon_B2F_Text_ObtainedDomeFossil::
 
 MtMoon_B2F_Text_BenIntro::
     .string "Watch out for GEODUDE!\p"
-    .string "They like to blow up!\p"
+    .string "They like to blow up!$"
 
 MtMoon_B2F_Text_BenDefeat::
-    .string "Haha, what a battle!\n"
+    .string "Hahaha! What a battle!\n"
     .string "Got me cranking my shiii!$"
 
 MtMoon_B2F_Text_BenGiveSunStone::
@@ -82,3 +82,8 @@ MtMoon_B2F_Text_BenGiveSunStone::
     .string "a rematch next time we meet!\p"
     .string "Here, I found this but\n"
     .string "doubt that I will use it.$"
+
+MtMoon_B2F_Text_BenAfterGift::
+    .string "Alright, I'm outta here!\n"
+    .string "Gonna go heal up at the\p"
+    .string "POKéMON center.$"

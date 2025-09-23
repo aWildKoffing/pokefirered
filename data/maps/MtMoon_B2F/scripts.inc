@@ -12,11 +12,8 @@ MtMoon_B2F_EventScript_ShowFossils::
 	return
 
 MtMoon_B2F_EventScript_Miguel::
-	lock
-	faceplayer
 	trainerbattle_single TRAINER_SUPER_NERD_MIGUEL, MtMoon_B2F_Text_MiguelIntro, MtMoon_B2F_Text_MiguelDefeat
 	msgbox MtMoon_B2F_Text_MiguelDefeat, MSGBOX_AUTOCLOSE
-	release
 	end
 
 MtMoon_B2F_EventScript_DomeFossil::
@@ -72,12 +69,12 @@ MtMoon_B2F_EventScript_Grunt4::
 	end
 
 MtMoon_B2F_EventScript_Ben::
-	lock
-	faceplayer
 	trainerbattle_single TRAINER_MT_MOON_BEN, MtMoon_B2F_Text_BenIntro, MtMoon_B2F_Text_BenDefeat
+	waitbuttonpress
 	giveitem_msg MtMoon_B2F_Text_BenGiveSunStone, ITEM_SUN_STONE
+	msgbox MtMoon_B2F_Text_BenAfterGift, MSGBOX_DEFAULT
 	fadescreen FADE_TO_BLACK
 	removeobject LOCALID_MT_MOON_BEN
 	fadescreen FADE_FROM_BLACK
-	release
+	setflag FLAG_BEAT_BEN_MT_MOON
 	end

@@ -420,7 +420,7 @@ CeruleanCity_EventScript_Nick::
 
 CeruleanCity_EventScript_GymEntrance::
 	lock
-	applymovement LOCALID_PEWTER_GYMKEEPER, CeruleanCity_Mov_GuardHalt
+	applymovement LOCALID_CERULEAN_GYMKEEPER, CeruleanCity_Mov_GuardHalt
 	applymovement LOCALID_PLAYER, CeruleanCity_Mov_PlayerStepBack
 	msgbox CeruleanCity_Text_GymGateKeeper_Halt, MSGBOX_DEFAULT
 	delay 20
@@ -429,8 +429,8 @@ CeruleanCity_EventScript_GymEntrance::
 	goto_if_eq CeruleanGymGateKeeperAllowEntry
 	// else block the player from entering
 	msgbox CeruleanCity_Text_GymGateKeeper_Deny, MSGBOX_DEFAULT
-	applymovement LOCALID_PEWTER_GYMKEEPER, CeruleanCity_Mov_GuardReset
-	waitmovement LOCALID_PEWTER_GYMKEEPER
+	applymovement LOCALID_CERULEAN_GYMKEEPER, CeruleanCity_Mov_GuardReset
+	waitmovement LOCALID_CERULEAN_GYMKEEPER
 	release
 	end
 
@@ -440,8 +440,8 @@ CeruleanCity_Mov_GuardFacePlayer::
 
 CeruleanGymGateKeeperAllowEntry::
 	msgbox CeruleanCity_Text_GymGateKeeper_Allow, MSGBOX_DEFAULT
-	applymovement LOCALID_PEWTER_GYMKEEPER, CeruleanCity_Mov_GuardReset
-	waitmovement LOCALID_PEWTER_GYMKEEPER
+	applymovement LOCALID_CERULEAN_GYMKEEPER, CeruleanCity_Mov_GuardReset
+	waitmovement LOCALID_CERULEAN_GYMKEEPER
 	applymovement LOCALID_PLAYER, CeruleanCity_Mov_PlayerEnterGym
 	waitmovement LOCALID_PLAYER
 	release

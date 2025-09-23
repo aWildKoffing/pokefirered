@@ -129,3 +129,16 @@ VermilionCity_Text_Route2AideHasPackageForYou::
     .string "If you're in the ROUTE 2 area,\n"
     .string "please look for him.$"
 
+VermilionCity_Text_GymGateKeeper_Halt::
+    .string "OFFICIAL: Halt!\p"
+    .string "LT. SURGE accepts challenges from\n"
+    .string "trainers carrying no more than\p"
+    .string "3 POKéMON in their party.$"
+
+VermilionCity_Text_GymGateKeeper_Deny::
+    .string "Please deposit your extra POKéMON\n"
+    .string "at a PC and return.$"
+
+VermilionCity_Text_GymGateKeeper_Allow::
+    .string "You're all set. Good luck\n"
+    .string "in the VERMILION CITY GYM!$"

@@ -264,3 +264,53 @@ VermilionCity_EventScript_GymSign::
 VermilionCity_EventScript_HarborSign::
 	msgbox VermilionCity_Text_VermilionHarbor, MSGBOX_SIGN
 	end
+
+VermilionCity_EventScript_GymEntrance::
+	lock
+	applymovement LOCALID_VERMILLION_GYMKEEPER, VermilionCity_Mov_GuardHalt
+	applymovement LOCALID_PLAYER, VermilionCity_Mov_PlayerStepBack
+	msgbox VermilionCity_Text_GymGateKeeper_Halt, MSGBOX_DEFAULT
+	delay 20
+	checkgympartylimit TRAINER_LEADER_LT_SURGE
+	compare VAR_RESULT, 1
+	goto_if_eq VermilionGymGateKeeperAllowEntry
+	// else block the player from entering
+	msgbox VermilionCity_Text_GymGateKeeper_Deny, MSGBOX_DEFAULT
+	applymovement LOCALID_VERMILLION_GYMKEEPER, VermilionCity_Mov_GuardReset
+	waitmovement LOCALID_VERMILLION_GYMKEEPER
+	release
+	end
+
+VermilionCity_Mov_GuardFacePlayer::
+	faceplayer
+	step_end
+	
+VermilionGymGateKeeperAllowEntry::
+	msgbox VermilionCity_Text_GymGateKeeper_Allow, MSGBOX_DEFAULT
+	applymovement LOCALID_VERMILLION_GYMKEEPER, VermilionCity_Mov_GuardReset
+	waitmovement LOCALID_VERMILLION_GYMKEEPER
+	applymovement LOCALID_PLAYER, VermilionCity_Mov_PlayerEnterGym
+	waitmovement LOCALID_PLAYER
+	release
+	end
+
+VermilionCity_Mov_GuardHalt:
+    face_left
+    walk_left
+	face_down
+    step_end
+
+VermilionCity_Mov_PlayerStepBack:
+    walk_down
+	face_up
+    step_end
+
+VermilionCity_Mov_GuardReset::
+	face_right
+    walk_right
+	face_down
+	step_end
+
+VermilionCity_Mov_PlayerEnterGym::
+	walk_up
+	step_end

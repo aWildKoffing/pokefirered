@@ -112,3 +112,16 @@ CeladonCity_Text_SomeoneStoleSilphScope::
     .string "But I lost sight of him!\n"
     .string "Where'd he go?$"
 
+CeladonCity_Text_GymGateKeeper_Halt::
+    .string "OFFICIAL: Halt!\p"
+    .string "ERIKA accepts challenges from\n"
+    .string "trainers carrying no more than\p"
+    .string "4 POKéMON in their party.$"
+
+CeladonCity_Text_GymGateKeeper_Deny::
+    .string "Please deposit your extra POKéMON\n"
+    .string "at a PC and return.$"
+
+CeladonCity_Text_GymGateKeeper_Allow::
+    .string "You're all set. Good luck\n"
+    .string "in the CELADON CITY GYM!$"

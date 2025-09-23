@@ -101,3 +101,53 @@ CeladonCity_EventScript_PrizeExchangeSign::
 CeladonCity_EventScript_GameCornerSign::
 	msgbox CeladonCity_Text_GameCornerSign, MSGBOX_SIGN
 	end
+
+CeladonCity_EventScript_GymEntrance::
+	lock
+	applymovement LOCALID_CELADON_GYMKEEPER, CeladonCity_Mov_GuardHalt
+	applymovement LOCALID_PLAYER, CeladonCity_Mov_PlayerStepBack
+	msgbox CeladonCity_Text_GymGateKeeper_Halt, MSGBOX_DEFAULT
+	delay 20
+	checkgympartylimit TRAINER_LEADER_ERIKA
+	compare VAR_RESULT, 1
+	goto_if_eq CeladonCity_GymGateKeeperAllowEntry
+	// else block the player from entering
+	msgbox CeladonCity_Text_GymGateKeeper_Deny, MSGBOX_DEFAULT
+	applymovement LOCALID_CELADON_GYMKEEPER, CeladonCity_Mov_GuardReset
+	waitmovement LOCALID_CELADON_GYMKEEPER
+	release
+	end
+
+CeladonCity_Mov_GuardFacePlayer::
+	faceplayer
+	step_end
+	
+CeladonCity_GymGateKeeperAllowEntry::
+	msgbox CeladonCity_Text_GymGateKeeper_Allow, MSGBOX_DEFAULT
+	applymovement LOCALID_CELADON_GYMKEEPER, CeladonCity_Mov_GuardReset
+	waitmovement LOCALID_CELADON_GYMKEEPER
+	applymovement LOCALID_PLAYER, CeladonCity_Mov_PlayerEnterGym
+	waitmovement LOCALID_PLAYER
+	release
+	end
+
+CeladonCity_Mov_GuardHalt:
+    face_left
+    walk_left
+	face_down
+    step_end
+
+CeladonCity_Mov_PlayerStepBack:
+    walk_down
+	face_up
+    step_end
+
+CeladonCity_Mov_GuardReset::
+	face_right
+    walk_right
+	face_down
+	step_end
+
+CeladonCity_Mov_PlayerEnterGym::
+	walk_up
+	step_end

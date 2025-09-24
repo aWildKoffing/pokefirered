@@ -216,7 +216,7 @@ CeruleanCity_Text_GymGateKeeper_Halt::
     .string "OFFICIAL: Halt!\p"
     .string "MISTY accepts challenges from\n"
     .string "trainers carrying no more than\p"
-    .string "2 POKéMON in their party.$"
+    .string "3 POKéMON in their party.$"
 
 CeruleanCity_Text_GymGateKeeper_Deny::
     .string "Please deposit your extra POKéMON\n"

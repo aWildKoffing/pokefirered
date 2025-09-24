@@ -78,12 +78,12 @@ MtMoon_B2F_Text_BenDefeat::
     .string "Got me cranking my shiii!$"
 
 MtMoon_B2F_Text_BenGiveSunStone::
-    .string "That was fun. I demand\n"
-    .string "a rematch next time we meet!\p"
-    .string "Here, I found this but\n"
-    .string "doubt that I will use it.$"
+    .string "That was fun. I demand a proper\n"
+    .string "rematch next time we meet!\p"
+    .string "Here, I found this but doubt I\n"
+    .string "will use it.$"
 
 MtMoon_B2F_Text_BenAfterGift::
     .string "Alright, I'm outta here!\n"
-    .string "Gonna go heal up at the\p"
-    .string "POKéMON center.$"
+    .string "Gonna go heal up at the POKéMON\p"
+    .string "center.$"

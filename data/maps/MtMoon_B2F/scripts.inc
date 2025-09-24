@@ -3,11 +3,15 @@ MtMoon_B2F_MapScripts::
 	.byte 0
 
 MtMoon_B2F_OnTransition::
-	call_if_unset FLAG_GOT_FOSSIL_FROM_MT_MOON, MtMoon_B2F_EventScript_ShowFossils
+	call_if_unset FLAG_GOT_DOME_FOSSIL, MtMoon_B2F_EventScript_ShowDomeFossil
+	call_if_unset FLAG_GOT_HELIX_FOSSIL, MtMoon_B2F_EventScript_ShowHelixFossil
 	end
 
-MtMoon_B2F_EventScript_ShowFossils::
+MtMoon_B2F_EventScript_ShowDomeFossil::
 	clearflag FLAG_HIDE_DOME_FOSSIL
+	return
+
+MtMoon_B2F_EventScript_ShowHelixFossil::
 	clearflag FLAG_HIDE_HELIX_FOSSIL
 	return
 
@@ -26,9 +30,7 @@ MtMoon_B2F_EventScript_DomeFossil::
 	delay 5
 	playfanfare MUS_OBTAIN_KEY_ITEM
 	waitfanfare
-	removeobject LOCALID_HELIX_FOSSIL
 	setflag FLAG_GOT_DOME_FOSSIL
-	setflag FLAG_GOT_FOSSIL_FROM_MT_MOON
 	release
 	end
 
@@ -42,9 +44,7 @@ MtMoon_B2F_EventScript_HelixFossil::
 	delay 5
 	playfanfare MUS_OBTAIN_KEY_ITEM
 	waitfanfare
-	removeobject LOCALID_DOME_FOSSIL
 	setflag FLAG_GOT_HELIX_FOSSIL
-	setflag FLAG_GOT_FOSSIL_FROM_MT_MOON
 	release
 	end
 
@@ -72,7 +72,7 @@ MtMoon_B2F_EventScript_Ben::
 	trainerbattle_single TRAINER_MT_MOON_BEN, MtMoon_B2F_Text_BenIntro, MtMoon_B2F_Text_BenDefeat
 	waitbuttonpress
 	giveitem_msg MtMoon_B2F_Text_BenGiveSunStone, ITEM_SUN_STONE
-	msgbox MtMoon_B2F_Text_BenAfterGift, MSGBOX_DEFAULT
+	msgbox MtMoon_B2F_Text_BenAfterGift, MSGBOX_AUTOCLOSE
 	fadescreen FADE_TO_BLACK
 	removeobject LOCALID_MT_MOON_BEN
 	fadescreen FADE_FROM_BLACK

@@ -4409,8 +4409,8 @@ static void ShowOrHideStatusIcon(u8 invisible)
 
 // Position under the mon picture on the MOVES page.
 // Tweak these two to nudge where you want the strip to sit.
-#define FRIEND_BAR_X_START  15   // pixels (left cap x)
-#define FRIEND_BAR_Y        96   // pixels (vertical location)
+#define FRIEND_BAR_X_START  7   // pixels (left cap x)
+#define FRIEND_BAR_Y        94   // pixels (vertical location)
 
 static void CreateFriendBarObjs(u16 tileTag, u16 palTag)
 {

@@ -1617,12 +1617,12 @@ static const u8 sStatsToRaise[] =
 // 0-99, 100-199, 200+
 static const s8 sFriendshipEventDeltas[][3] = 
 {
-    [FRIENDSHIP_EVENT_GROW_LEVEL]           = { 5,  3,  2 },
+    [FRIENDSHIP_EVENT_GROW_LEVEL]           = { 6,  4,  2 },
     [FRIENDSHIP_EVENT_VITAMIN]              = { 5,  3,  2 },
-    [FRIENDSHIP_EVENT_BATTLE_ITEM]          = { 1,  1,  0 },
+    [FRIENDSHIP_EVENT_BATTLE_ITEM]          = { 2,  2,  1 },
     [FRIENDSHIP_EVENT_LEAGUE_BATTLE]        = { 3,  2,  1 },
-    [FRIENDSHIP_EVENT_LEARN_TMHM]           = { 1,  1,  0 },
-    [FRIENDSHIP_EVENT_WALKING]              = { 1,  1,  1 },
+    [FRIENDSHIP_EVENT_LEARN_TMHM]           = { 3,  3,  1 },
+    [FRIENDSHIP_EVENT_WALKING]              = { 2,  2,  1 },
     [FRIENDSHIP_EVENT_MASSAGE]              = { 3,  3,  3 },
     [FRIENDSHIP_EVENT_FAINT_SMALL]          = {-1, -1, -1 },
     [FRIENDSHIP_EVENT_FAINT_OUTSIDE_BATTLE] = {-5, -5, -10 },
@@ -5055,7 +5055,7 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 type, u16 evolutionItem)
             switch (gEvolutionTable[species][i].method)
             {
             case EVO_FRIENDSHIP:
-                if (friendship >= 220)
+                if (friendship >= 200)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             // FR/LG removed the time of day evolutions due to having no RTC.
@@ -5481,6 +5481,8 @@ void AdjustFriendship(struct Pokemon *mon, u8 event)
             if (!(gBattleTypeFlags & BATTLE_TYPE_TRAINER))
                 return;
             if (!(gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_LEADER
+                || gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_RIVAL_EARLY
+                || gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_RIVAL_LATE
                 || gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_ELITE_FOUR
                 || gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_CHAMPION))
                 return;

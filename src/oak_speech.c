@@ -75,6 +75,7 @@ static void Task_OakSpeech_LoadPlayerPic(u8);
 static void Task_OakSpeech_YourNameWhatIsIt(u8);
 static void Task_OakSpeech_FadeOutForPlayerNamingScreen(u8);
 static void Task_OakSpeech_HandleRivalNameInput(u8);
+static void Task_OakSpeech_HandlePlayerNameInput(u8);
 static void Task_OakSpeech_DoNamingScreen(u8);
 static void Task_OakSpeech_ConfirmName(u8);
 static void Task_OakSpeech_HandleConfirmNameInput(u8);
@@ -590,76 +591,28 @@ static const u8 *const sControlsGuide_Pages2And3_Strings[CONTROLS_GUIDE_STRINGS_
 
 static const u8 *const sMaleNameChoices[] =
 {
-#if defined(FIRERED)
     gNameChoice_Red,
-    gNameChoice_Fire,
     gNameChoice_Ash,
-    gNameChoice_Kene,
-    gNameChoice_Geki,
-#elif defined(LEAFGREEN)
-    gNameChoice_Green,
-    gNameChoice_Leaf,
-    gNameChoice_Gary,
-    gNameChoice_Kaz,
-    gNameChoice_Toru,
-#endif
-    gNameChoice_Jak,
-    gNameChoice_Janne,
-    gNameChoice_Jonn,
-    gNameChoice_Kamon,
-    gNameChoice_Karl,
-    gNameChoice_Taylor,
-    gNameChoice_Oscar,
     gNameChoice_Hiro,
-    gNameChoice_Max,
-    gNameChoice_Jon,
-    gNameChoice_Ralph,
-    gNameChoice_Kay,
-    gNameChoice_Tosh,
-    gNameChoice_Roak
+    gNameChoice_Kene,
+    gNameChoice_Jak
 };
 
 static const u8 *const sFemaleNameChoices[] =
 {
-#if defined(FIRERED)
-    gNameChoice_Red,
-    gNameChoice_Fire,
-#elif defined(LEAFGREEN)
     gNameChoice_Green,
-    gNameChoice_Leaf,
-#endif
-    gNameChoice_Omi,
-    gNameChoice_Jodi,
-    gNameChoice_Amanda,
-    gNameChoice_Hillary,
-    gNameChoice_Makey,
-    gNameChoice_Michi,
-    gNameChoice_Paula,
     gNameChoice_June,
-    gNameChoice_Cassie,
-    gNameChoice_Rey,
-    gNameChoice_Seda,
     gNameChoice_Kiko,
-    gNameChoice_Mina,
-    gNameChoice_Norie,
-    gNameChoice_Sai,
-    gNameChoice_Momo,
-    gNameChoice_Suzi
+    gNameChoice_Mina
 };
 
+// "Kaz" is actually "BLUE"
 static const u8 *const sRivalNameChoices[] =
 {
-#if defined(FIRERED)
-    gNameChoice_Green,
-    gNameChoice_Gary,
     gNameChoice_Kaz,
-    gNameChoice_Toru
-#elif defined(LEAFGREEN)
-    gNameChoice_Red,
-    gNameChoice_Ash,
-    gNameChoice_Kene,
-    gNameChoice_Geki
-#endif
+    gNameChoice_Gary,
+    gNameChoice_Geki,
+    gNameChoice_Karl
 };
 
 enum
@@ -1351,6 +1304,56 @@ static void Task_OakSpeech_LoadPlayerPic(u8 taskId)
     gTasks[taskId].func = Task_OakSpeech_YourNameWhatIsIt;
 }
 
+#define tNameNotConfirmed data[15]
+
+static void Task_OakSpeech_HandlePlayerNameInput(u8 taskId)
+{
+    s16 *data = gTasks[taskId].data;
+    s8 input = Menu_ProcessInput();
+    switch (input)
+    {
+    case 0: // NEW NAME
+        PlaySE(SE_SELECT);
+        BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
+        gTasks[taskId].func = Task_OakSpeech_FadeOutForPlayerNamingScreen;
+        break;
+    case 1: // Default name options
+    case 2: //
+    case 3: //
+    case 4: //
+        PlaySE(SE_SELECT);
+        ClearStdWindowAndFrameToTransparent(tMenuWindowId, TRUE);
+        RemoveWindow(tMenuWindowId);
+        GetDefaultName(sOakSpeechResources->hasPlayerBeenNamed, input - 1);
+        tNameNotConfirmed = TRUE;
+        gTasks[taskId].func = Task_OakSpeech_ConfirmName;
+        break;
+    case MENU_B_PRESSED:
+        break;
+    }
+}
+
+static void Task_OakSpeech_MovePlayerDisplayNameOptions(u8 taskId)
+{
+    s16 *data = gTasks[taskId].data;
+
+    if (!IsTextPrinterActive(WIN_INTRO_TEXTBOX))
+    {
+        if (tTrainerPicPosX > -60)
+        {
+            tTrainerPicPosX -= 2;
+            gSpriteCoordOffsetX += 2;
+            ChangeBgX(2, 0x200, BG_COORD_SUB);
+        }
+        else
+        {
+            tTrainerPicPosX = -60;
+            PrintNameChoiceOptions(taskId, sOakSpeechResources->hasPlayerBeenNamed);
+            gTasks[taskId].func = Task_OakSpeech_HandlePlayerNameInput;
+        }
+    }
+}
+
 static void Task_OakSpeech_YourNameWhatIsIt(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
@@ -1365,7 +1368,7 @@ static void Task_OakSpeech_YourNameWhatIsIt(u8 taskId)
         {
             tTrainerPicPosX = 0;
             OakSpeechPrintMessage(gOakSpeech_Text_YourNameWhatIsIt, sOakSpeechResources->textSpeed);
-            gTasks[taskId].func = Task_OakSpeech_FadeOutForPlayerNamingScreen;
+            gTasks[taskId].func = Task_OakSpeech_MovePlayerDisplayNameOptions;
         }
     }
 }
@@ -1405,13 +1408,18 @@ static void Task_OakSpeech_RepeatNameQuestion(u8 taskId)
 {
     PrintNameChoiceOptions(taskId, sOakSpeechResources->hasPlayerBeenNamed);
     if (sOakSpeechResources->hasPlayerBeenNamed == FALSE)
+    {
         OakSpeechPrintMessage(gOakSpeech_Text_YourNameWhatIsIt, 0);
+        gTasks[taskId].func = Task_OakSpeech_HandlePlayerNameInput;
+    }
     else
+    {
         OakSpeechPrintMessage(gOakSpeech_Text_YourRivalsNameWhatWasIt, 0);
-    gTasks[taskId].func = Task_OakSpeech_HandleRivalNameInput;
+        gTasks[taskId].func = Task_OakSpeech_HandleRivalNameInput;
+    }
 }
 
-#define tNameNotConfirmed data[15]
+//#define tNameNotConfirmed data[15]
 
 static void Task_OakSpeech_HandleRivalNameInput(u8 taskId)
 {
@@ -1514,10 +1522,7 @@ static void Task_OakSpeech_HandleConfirmNameInput(u8 taskId)
     case 1: // NO
     case MENU_B_PRESSED:
         PlaySE(SE_SELECT);
-        if (sOakSpeechResources->hasPlayerBeenNamed == FALSE)
-            gTasks[taskId].func = Task_OakSpeech_FadeOutForPlayerNamingScreen;
-        else
-            gTasks[taskId].func = Task_OakSpeech_RepeatNameQuestion;
+        gTasks[taskId].func = Task_OakSpeech_RepeatNameQuestion;
         break;
     }
 }
@@ -2192,6 +2197,7 @@ static void PrintNameChoiceOptions(u8 taskId, u8 hasPlayerBeenNamed)
     CopyWindowToVram(tMenuWindowId, COPYWIN_FULL);
 }
 
+// rivalChoiceName is just the index in the name list
 static void GetDefaultName(u8 hasPlayerBeenNamed, u8 rivalNameChoice)
 {
     const u8 *src;
@@ -2200,9 +2206,9 @@ static void GetDefaultName(u8 hasPlayerBeenNamed, u8 rivalNameChoice)
     if (hasPlayerBeenNamed == FALSE)
     {
         if (gSaveBlock2Ptr->playerGender == MALE)
-            src = sMaleNameChoices[Random() % ARRAY_COUNT(sMaleNameChoices)];
+            src = sMaleNameChoices[rivalNameChoice];
         else
-            src = sFemaleNameChoices[Random() % ARRAY_COUNT(sFemaleNameChoices)];
+            src = sFemaleNameChoices[rivalNameChoice];
         dest = gSaveBlock2Ptr->playerName;
     }
     else

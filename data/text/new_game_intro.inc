@@ -17,7 +17,7 @@ gNameChoice_Gary::
     .string "GARY$"
 
 gNameChoice_Kaz::
-    .string "KAZ$"
+    .string "BLUE$"
 
 gNameChoice_Toru::
     .string "TORU$"
@@ -32,7 +32,7 @@ gNameChoice_Geki::
     .string "GEKI$"
 
 gNameChoice_Jak::
-    .string "JAK$"
+    .string "JACK$"
 
 gNameChoice_Janne::
     .string "JANNE$"

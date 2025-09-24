@@ -246,6 +246,7 @@ struct BattleMove
     u8 target;
     s8 priority;
     u8 flags;
+    u8 split; // phys=0, spec=1, status=2
 };
 
 #define SPINDA_SPOT_WIDTH 16
@@ -423,5 +424,11 @@ bool8 CheckBattleTypeGhost(struct Pokemon *mon, u8 bank);
 struct MonSpritesGfxManager *CreateMonSpritesGfxManager(u8 battlePosition, u8 mode);
 void DestroyMonSpritesGfxManager(void);
 u8 *MonSpritesGfxManager_GetSpritePtr(u8 bufferId);
+
+// Helper macros to determine move type based on split
+#define MOVE_SPLIT(move)        (gBattleMoves[(move)].split)
+#define IS_MOVE_PHYSICAL(move)  (MOVE_SPLIT(move) == MOVE_SPLIT_PHYSICAL)
+#define IS_MOVE_SPECIAL(move)   (MOVE_SPLIT(move) == MOVE_SPLIT_SPECIAL)
+#define IS_MOVE_STATUS(move)    (MOVE_SPLIT(move) == MOVE_SPLIT_STATUS)
 
 #endif // GUARD_POKEMON_H
